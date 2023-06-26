@@ -13,6 +13,10 @@ body{
 .chat {
   height: calc(100vh - 180px);
 }
+.chat-container {
+  height: calc(100vh - 280px);
+}
+
 .decor-default {
   background-color: #ffffff;
 }
@@ -36,22 +40,50 @@ body{
   height: 40px;
   position: absolute;
 }
+.chat-container .avatar {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}
+
 .chat .avatar img {
   display: block;
   border-radius: 20px;
   height: 100%;
 }
+.chat-container .avatar img {
+  display: block;
+  border-radius: 20px;
+  height: 100%;
+}
+
 .chat .avatar .status.off {
+  border: 1px solid #5a5a5a;
+  background: #ffffff;
+}
+
+.chat-container .avatar .status.off {
   border: 1px solid #5a5a5a;
   background: #ffffff;
 }
 .chat .avatar .status.online {
   background: #4caf50;
 }
+.chat-container .avatar .status.online {
+  background: #4caf50;
+}
+
 .chat .avatar .status.busy {
   background: #ffc107;
 }
+.chat-container .avatar .status.busy {
+  background: #ffc107;
+}
+
 .chat .avatar .status.offline {
+  background: #ed4e6e;
+}
+.chat-container .avatar .status.offline {
   background: #ed4e6e;
 }
 .chat-users .user .status {
@@ -59,6 +91,12 @@ body{
   left: 28px;
 }
 .chat .avatar .status {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  position: absolute;
+}
+.chat-container .avatar .status {
   width: 10px;
   height: 10px;
   border-radius: 5px;
@@ -106,7 +144,19 @@ body{
   height: 40px;
   position: absolute;
 }
+.chat-container .avatar {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}
+
 .chat .avatar img {
+  display: block;
+  border-radius: 20px;
+  height: 100%;
+}
+
+.chat-container .avatar img {
   display: block;
   border-radius: 20px;
   height: 100%;
@@ -184,32 +234,32 @@ body{
 }
 
 /**************ADD FORM ***************/
-.chat-body .answer-add {
+.chat-sender .answer-add {
   clear: both;
   position: relative;
   margin: 20px -20px -20px;
   padding: 20px;
   background: #46be8a;
 }
-.chat-body .answer-add input {
+.chat-sender .answer-add input {
   border: none;
   background: none;
   display: block;
-  width: 100%;
+  width: 95%;
   font-size: 16px;
   line-height: 20px;
   padding: 0;
   color: #ffffff;
 }
-.chat input {
+.chat-container input {
   -webkit-appearance: none;
   border-radius: 0;
 }
-.chat-body .answer-add .answer-btn-1 {
+.chat-sender .answer-add .answer-btn-1 {
   background: url("http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-40.png") 50% 50% no-repeat;
   right: 56px;
 }
-.chat-body .answer-add .answer-btn {
+.chat-sender .answer-add .answer-btn {
   display: block;
   cursor: pointer;
   width: 36px;
@@ -218,26 +268,31 @@ body{
   top: 50%;
   margin-top: -18px;
 }
-.chat-body .answer-add .answer-btn-2 {
-  background: url("http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-41.png") 50% 50% no-repeat;
+.chat-sender .answer-add .answer-btn-2 {
+  background: url("assets/img/send.png") 50% 50% no-repeat;
   right: 20px;
 }
-.chat input::-webkit-input-placeholder {
+.chat-container input::-webkit-input-placeholder {
  color: #fff;
 }
 
-.chat input:-moz-placeholder { /* Firefox 18- */
+.chat-container input:-moz-placeholder { /* Firefox 18- */
  color: #fff;  
 }
 
-.chat input::-moz-placeholder {  /* Firefox 19+ */
+.chat-container input::-moz-placeholder {  /* Firefox 19+ */
  color: #fff;  
 }
 
-.chat input:-ms-input-placeholder {  
+.chat-container input:-ms-input-placeholder {  
  color: #fff;  
 }
-.chat input {
+.chat-container input {
   -webkit-appearance: none;
   border-radius: 0;
+}
+
+.chat-body-space {
+  background-color: #ffffff;
+  box-decoration-break: clone;
 }
