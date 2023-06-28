@@ -187,7 +187,7 @@ class Chats extends Component {
                                                                             chat.messages && (chat.messages.length > 0 && chat.messages[(chat.messages).length - 1].isFileMessage === true) ? <i className="ri-file-text-fill align-middle me-1"></i> : null
                                                                         }
                                                                         {
-                                                                        chat.messages && chat.messages.length > 0 ? chat.messages[(chat.messages).length - 1].message : null
+                                                                        chat.messages && chat.messages.length > 0 ? chat.messages[(chat.messages).length - 1].content : null
                                                                         }
                                                                     </>
                                                             }

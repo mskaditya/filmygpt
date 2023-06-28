@@ -59,12 +59,13 @@ function UserChat(props) {
             case "textMessage":
                 messageObj = {
                     id: chatMessages.length + 1,
-                    message: message,
+                    content: message,
                     time: "00:" + n,
                     userType: "sender",
                     image: avatar4,
                     isFileMessage: false,
-                    isImageMessage: false
+                    isImageMessage: false,
+                    role: "sender"
                 }
                 break;
 
@@ -107,9 +108,12 @@ function UserChat(props) {
         //add message object to chat        
         setchatMessages([...chatMessages, messageObj]);
 
-        let copyallUsers = [...allUsers];
-        copyallUsers[props.active_user].messages = [...chatMessages, messageObj];
-        copyallUsers[props.active_user].isTyping = false;
+        let copyallUsers = props.recentChatList[props.active_user];
+        
+
+
+        copyallUsers.messages = [...chatMessages, messageObj];
+        copyallUsers.isTyping = false;
         props.setFullUser(copyallUsers);
 
         scrolltoBottom();
@@ -181,9 +185,9 @@ function UserChat(props) {
                                                             <div className="ctext-wrap">
                                                                 <div className="ctext-wrap-content">
                                                                     {
-                                                                        chat.message &&
+                                                                        chat.content &&
                                                                         <p className="mb-0">
-                                                                            {chat.message}
+                                                                            {chat.content}
                                                                         </p>
                                                                     }
                                                                     {
@@ -277,9 +281,9 @@ function UserChat(props) {
                                                             <div className="ctext-wrap">
                                                                 <div className="ctext-wrap-content">
                                                                     {
-                                                                        chat.message &&
+                                                                        chat.content &&
                                                                         <p className="mb-0">
-                                                                            {chat.message}
+                                                                            {chat.content}
                                                                         </p>
                                                                     }
                                                                     {
@@ -370,9 +374,9 @@ function UserChat(props) {
 }
 
 const mapStateToProps = (state) => {
-    const { active_user } = state.Chat;
+    const { active_user, users } = state.Chat;
     const { userSidebar } = state.Layout;
-    return { active_user, userSidebar };
+    return { active_user, users, userSidebar };
 };
 
 export default withRouter(connect(mapStateToProps, { openUserSidebar, setFullUser })(UserChat));
