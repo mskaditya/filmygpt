@@ -101,7 +101,7 @@ function UserHead(props) {
                             </div>
                         </div>
                     </Col>
-                    <Col sm={8} xs={4} >
+                    {/* <Col sm={8} xs={4} >
                         <ul className="list-inline user-chat-nav text-end mb-0">
 
                             <li className="list-inline-item">
@@ -148,7 +148,7 @@ function UserHead(props) {
                             </li>
 
                         </ul>
-                    </Col>
+                    </Col> */}
                 </Row>
             </div>
 

@@ -75,7 +75,7 @@ function ChatInput(props) {
                         <Col xs="auto">
                             <div className="chat-input-links ms-md-2">
                                 <ul className="list-inline mb-0 ms-0">
-                                    <li className="list-inline-item">
+                                    {/* <li className="list-inline-item">
                                         <ButtonDropdown className="emoji-dropdown" direction="up" isOpen={isOpen} toggle={toggle}>
                                             <DropdownToggle id="emoji" color="link" className="text-decoration-none font-size-16 btn-lg waves-effect">
                                                 <i className="ri-emotion-happy-line"></i>
@@ -87,8 +87,8 @@ function ChatInput(props) {
                                         <UncontrolledTooltip target="emoji" placement="top">
                                             Emoji
                                         </UncontrolledTooltip>
-                                    </li>
-                                    <li className="list-inline-item input-file">
+                                    </li> */}
+                                    {/* <li className="list-inline-item input-file">
                                         <Label id="files" className="btn btn-link text-decoration-none font-size-16 btn-lg waves-effect">
                                             <i className="ri-attachment-line"></i>
                                             <Input onChange={(e) => handleFileChange(e)} type="file" name="fileInput" size="60" />
@@ -105,7 +105,7 @@ function ChatInput(props) {
                                         <UncontrolledTooltip target="images" placement="top">
                                             Images
                                         </UncontrolledTooltip>
-                                    </li>
+                                    </li> */}
                                     <li className="list-inline-item">
                                         <Button type="submit" color="primary" className="font-size-16 btn-lg chat-send waves-effect waves-light">
                                             <i className="ri-send-plane-2-fill"></i>
