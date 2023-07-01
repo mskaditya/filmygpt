@@ -18,19 +18,10 @@ const INIT_STATE = {
 	active_user : 0,
     users: [
         //admin is sender and user in receiver
-        { id : 0, name : "Patrick Hendricks", profilePicture : avatar2, status : "online", unRead : 0, roomType : "contact", isGroup: false,
+        { id : 0, name : "FilmiGpt", profilePicture : avatar2, status : "online", unRead : 0, roomType : "contact", isGroup: false,
         initialconv: "true", 
             messages: [
-                { id: 1, content: "hi", time: "01:05", userType: "receiver", isImageMessage : false, isFileMessage : false },
-                { id: 2, content: "hi patrick", time: "10.00", userType: "sender", isImageMessage : false, isFileMessage : false },
-                { id: 3, content: "how's going on your project?", time: "01:05", userType: "receiver", isImageMessage : false, isFileMessage : false },
-                { id: 4, content: "Do you need any help?", time: "01:06", userType: "receiver", isImageMessage : false, isFileMessage : false },
-                { id : 33, isToday : true },
-                { id: 5, content: "Let me know?", time: "01:06", userType: "receiver", isImageMessage : false, isFileMessage : false },
-                { id: 6, content: "hi...Good Morning!", time: "09:05", userType: "sender", isImageMessage : false, isFileMessage : false },
-                { id: 7, content: "Image", time: "10:30", userType: "receiver", isImageMessage : true, isFileMessage : false, imageMessage : [ { image : img4 }, { image : img7 } ] },
-                { id: 8, content: "please, save this pictures to your file and give it to me after you have done with editing!", time: "10:31", userType: "receiver", isImageMessage : false, isFileMessage : false },
-                { id: 9, content: "okay sure😄👍", time: "02:50 PM", userType: "sender", isImageMessage : false, isFileMessage : false },
+                { id: 1, content: "Rishtey mein toh Hum Tumhare baap lagthe Hein. Naam he Assistant Bot", time: "01:05", userType: "receiver", isImageMessage : false, isFileMessage : false }
         ] }
     ],
     groups : [
