@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //Import Components
-import ChatLeftSidebar from "./ChatLeftSidebar";
+// import ChatLeftSidebar from "./ChatLeftSidebar";
 import UserChat from "./UserChat/";
 
 import { connect } from "react-redux";

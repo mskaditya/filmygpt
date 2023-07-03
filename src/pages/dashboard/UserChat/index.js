@@ -26,7 +26,7 @@ import { useTranslation } from 'react-i18next';
 
 function UserChat(props) {
 
-    const ref = useRef();
+    const chatContainerRef = useRef();
 
     const [modal, setModal] = useState(false);
 
@@ -41,14 +41,12 @@ function UserChat(props) {
     useEffect(() => {
         setchatMessages(props.recentChatList[props.active_user].messages);
 
-        ref.current.recalculate();
-        if (ref.current.el) {
-            ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight;
-        }
+        // chatContainerRef.current.recalculate();
+        // if (chatContainerRef.current.el) {
+        //     chatContainerRef.current.getScrollElement().scrollTop = chatContainerRef.current.getScrollElement().scrollHeight;
+        // }
 
-        if (props.users) {
-            scrolltoBottom();
-        }
+        scrolltoBottom("use effect");
     }, [props.active_user, props.recentChatList]);
 
     useEffect(() => {
@@ -63,7 +61,7 @@ function UserChat(props) {
         userData.messages = [];
         userData.isTyping = false;
         props.setFullUser(userData);
-        scrolltoBottom();
+        scrolltoBottom("initial message");
     }
 
 
@@ -137,13 +135,24 @@ function UserChat(props) {
         copyallUsers.isTyping = false;
         props.setFullUser(copyallUsers);
 
-        scrolltoBottom();
+        // chatContainerRef.current.recalculate();
+        // if (chatContainerRef.current.el) {
+        //     chatContainerRef.current.getScrollElement().scrollTop = chatContainerRef.current.getScrollElement().scrollHeight;
+        // }
+
+        scrolltoBottom("new message");
     }
 
-    function scrolltoBottom() {
-        if (ref.current.el) {
-            ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight;
-        }
+    function scrolltoBottom(type) {
+        console.log(type)
+
+        if (chatContainerRef.current) {
+            const { scrollHeight, clientHeight } = chatContainerRef.current;
+            chatContainerRef.current.scrollTop = scrollHeight - clientHeight;
+          }
+        // if (chatContainerRef.current.el) {
+        //     chatContainerRef.current.getScrollElement().scrollTop = chatContainerRef.current.getScrollElement().scrollHeight;
+        // }
     }
 
 
@@ -160,7 +169,7 @@ function UserChat(props) {
 
     return (
         <React.Fragment>
-            <div className="user-chat w-100 overflow-hidden">
+            <div className="user-chat w-100 overflow-hidden user-chat-show">
 
                 <div className="d-lg-flex">
 
@@ -171,7 +180,7 @@ function UserChat(props) {
 
                         <SimpleBar
                             style={{ maxHeight: "100%" }}
-                            ref={ref}
+                            ref={chatContainerRef}
                             className="chat-conversation p-3 p-lg-4"
                             id="messages">
                             <ul className="list-unstyled mb-0">
