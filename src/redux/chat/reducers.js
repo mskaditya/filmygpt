@@ -19,10 +19,8 @@ const INIT_STATE = {
     users: [
         //admin is sender and user in receiver
         { id : 0, name : "FilmiGpt", profilePicture : avatar2, status : "online", unRead : 0, roomType : "contact", isGroup: false,
-        initialconv: "true", 
-            messages: [
-                { id: 1, content: "Rishtey mein toh Hum Tumhare baap lagthe Hein. Naam he Assistant Bot", time: "01:05", userType: "receiver", isImageMessage : false, isFileMessage : false }
-        ] }
+        initialconv: true, 
+            messages: [] }
     ],
     groups : [
         { gourpId : 1, name : "#General", profilePicture : "Null", isGroup : true, unRead : 0, desc : "General Group",
