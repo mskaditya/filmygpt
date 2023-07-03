@@ -35,18 +35,37 @@ function UserChat(props) {
 
     //demo conversation messages
     //userType must be required
-    const [allUsers] = useState(props.recentChatList);
+    //const [allUsers] = useState(props.recentChatList);
     const [chatMessages, setchatMessages] = useState(props.recentChatList[props.active_user].messages);
 
     useEffect(() => {
         setchatMessages(props.recentChatList[props.active_user].messages);
+
         ref.current.recalculate();
         if (ref.current.el) {
             ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight;
         }
+
+        if (props.users) {
+            scrolltoBottom();
+        }
     }, [props.active_user, props.recentChatList]);
 
+    useEffect(() => {
+        getInitialIceBreaker();
+    }, []);
+
+
     const toggle = () => setModal(!modal);
+
+    const getInitialIceBreaker = () => {
+        let userData = { ...props.recentChatList[props.active_user]};
+        userData.messages = [];
+        userData.isTyping = false;
+        props.setFullUser(userData);
+        scrolltoBottom();
+    }
+
 
     const addMessage = (message, type) => {
         var messageObj = null;
@@ -60,12 +79,12 @@ function UserChat(props) {
                 messageObj = {
                     id: chatMessages.length + 1,
                     content: message,
-                    time: "00:" + n,
-                    userType: "sender",
+                    time: d,
+                    userType: "user",
                     image: avatar4,
                     isFileMessage: false,
                     isImageMessage: false,
-                    role: "sender"
+                    role: "user"
                 }
                 break;
 
@@ -76,10 +95,11 @@ function UserChat(props) {
                     fileMessage: message.name,
                     size: message.size,
                     time: "00:" + n,
-                    userType: "sender",
+                    userType: "user",
                     image: avatar4,
                     isFileMessage: true,
-                    isImageMessage: false
+                    isImageMessage: false,
+                    role: "user"
                 }
                 break;
 
@@ -94,10 +114,11 @@ function UserChat(props) {
                     imageMessage: imageMessage,
                     size: message.size,
                     time: "00:" + n,
-                    userType: "sender",
+                    userType: "user",
                     image: avatar4,
                     isImageMessage: true,
-                    isFileMessage: false
+                    isFileMessage: false,
+                    role: "user"
                 }
                 break;
 
@@ -164,11 +185,11 @@ function UserChat(props) {
                                             </div>
                                         </li> :
                                             (props.recentChatList[props.active_user].isGroup === true) ?
-                                                <li key={key} className={chat.userType === "sender" ? "right" : ""}>
+                                                <li key={key} className={chat.role === "user" ? "right" : ""}>
                                                     <div className="conversation-list">
 
                                                         <div className="chat-avatar">
-                                                            {chat.userType === "sender" ? <img src={avatar1} alt="chatvia" /> :
+                                                            {chat.role === "user" ? <img src={avatar1} alt="chatvia" /> :
                                                                 props.recentChatList[props.active_user].profilePicture === "Null" ?
                                                                     <div className="chat-user-img align-self-center me-3">
                                                                         <div className="avatar-xs">
@@ -212,10 +233,10 @@ function UserChat(props) {
                                                                         </p>
                                                                     }
                                                                     {
-                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{chat.time}</span></p>
+                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
                                                                     }
                                                                 </div>
-                                                                {
+                                                                {/* {
                                                                     !chat.isTyping &&
                                                                     <UncontrolledDropdown className="align-self-start">
                                                                         <DropdownToggle tag="a">
@@ -228,28 +249,28 @@ function UserChat(props) {
                                                                             <DropdownItem onClick={() => deleteMessage(chat.id)}>Delete <i className="ri-delete-bin-line float-end text-muted"></i></DropdownItem>
                                                                         </DropdownMenu>
                                                                     </UncontrolledDropdown>
-                                                                }
+                                                                } */}
 
                                                             </div>
                                                             {
-                                                                <div className="conversation-name">{chat.userType === "sender" ? "Patricia Smith" : chat.userName}</div>
+                                                                <div className="conversation-name">{chat.role === "user" ? "Patricia Smith" : chat.userName}</div>
                                                             }
                                                         </div>
                                                     </div>
                                                 </li>
                                                 :
-                                                <li key={key} className={chat.userType === "sender" ? "right" : ""}>
+                                                <li key={key} className={chat.role === "user" ? "right" : ""}>
                                                     <div className="conversation-list">
                                                         {
                                                             //logic for display user name and profile only once, if current and last messaged sent by same receiver
-                                                            chatMessages[key + 1] ? chatMessages[key].userType === chatMessages[key + 1].userType ?
+                                                            chatMessages[key + 1] ? chatMessages[key].role === chatMessages[key + 1].role ?
 
                                                                 <div className="chat-avatar">
                                                                     <div className="blank-div"></div>
                                                                 </div>
                                                                 :
                                                                 <div className="chat-avatar">
-                                                                    {chat.userType === "sender" ? <img src={avatar1} alt="chatvia" /> :
+                                                                    {chat.role === "user" ? <img src={avatar1} alt="chatvia" /> :
                                                                         props.recentChatList[props.active_user].profilePicture === "Null" ?
                                                                             <div className="chat-user-img align-self-center me-3">
                                                                                 <div className="avatar-xs">
@@ -262,7 +283,7 @@ function UserChat(props) {
                                                                     }
                                                                 </div>
                                                                 : <div className="chat-avatar">
-                                                                    {chat.userType === "sender" ? <img src={avatar1} alt="chatvia" /> :
+                                                                    {chat.role === "user" ? <img src={avatar1} alt="chatvia" /> :
                                                                         props.recentChatList[props.active_user].profilePicture === "Null" ?
                                                                             <div className="chat-user-img align-self-center me-3">
                                                                                 <div className="avatar-xs">
@@ -308,10 +329,10 @@ function UserChat(props) {
                                                                         </p>
                                                                     }
                                                                     {
-                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{chat.time}</span></p>
+                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
                                                                     }
                                                                 </div>
-                                                                {
+                                                                {/* {
                                                                     !chat.isTyping &&
                                                                     <UncontrolledDropdown className="align-self-start">
                                                                         <DropdownToggle tag="a">
@@ -324,18 +345,18 @@ function UserChat(props) {
                                                                             <DropdownItem onClick={() => deleteMessage(chat.id)}>Delete <i className="ri-delete-bin-line float-end text-muted"></i></DropdownItem>
                                                                         </DropdownMenu>
                                                                     </UncontrolledDropdown>
-                                                                }
+                                                                } */}
 
                                                             </div>
                                                             {
                                                                 chatMessages[key + 1] ? 
-                                                                chatMessages[key].userType === chatMessages[key + 1].userType ? null : 
+                                                                chatMessages[key].role === chatMessages[key + 1].role ? null : 
 
-                                                                <div className="conversation-name">{chat.userType === "sender" ? 
+                                                                <div className="conversation-name">{chat.role === "user" ? 
 
                                                                 "Patricia Smith" : props.recentChatList[props.active_user].name}</div> : 
 
-                                                                <div className="conversation-name">{chat.userType === "sender" ? 
+                                                                <div className="conversation-name">{chat.role === "user" ? 
                                                                 
                                                                 "Admin" : props.recentChatList[props.active_user].name}</div>
                                                             }
