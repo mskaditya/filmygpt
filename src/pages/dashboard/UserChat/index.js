@@ -262,7 +262,7 @@ function UserChat(props) {
 
                                                             </div>
                                                             {
-                                                                <div className="conversation-name">{chat.role === "user" ? "Patricia Smith" : chat.userName}</div>
+                                                                <div className="conversation-name">{chat.role === "user" ? "You" : chat.userName}</div>
                                                             }
                                                         </div>
                                                     </div>
@@ -363,11 +363,11 @@ function UserChat(props) {
 
                                                                 <div className="conversation-name">{chat.role === "user" ? 
 
-                                                                "Patricia Smith" : props.recentChatList[props.active_user].name}</div> : 
+                                                                "You" : props.recentChatList[props.active_user].name}</div> : 
 
                                                                 <div className="conversation-name">{chat.role === "user" ? 
                                                                 
-                                                                "Admin" : props.recentChatList[props.active_user].name}</div>
+                                                                "You" : props.recentChatList[props.active_user].name}</div>
                                                             }
 
                                                         </div>
