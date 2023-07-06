@@ -69,7 +69,7 @@ function ChatInput(props) {
                     <Row className='g-0'>
                         <Col>
                             <div>
-                                <Input type="text" value={textMessage} onChange={handleChange} className="form-control form-control-lg bg-light border-light" placeholder="Enter Message..." />
+                                <Input type="text" value={textMessage} onChange={handleChange} className="form-control form-control-lg bg-light border-light" placeholder="Man Ki Baath Sunao...Bollywood style mein" />
                             </div>
                         </Col>
                         <Col xs="auto">

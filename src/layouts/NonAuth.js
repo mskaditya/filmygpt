@@ -27,7 +27,7 @@ class NonAuth extends Component {
         let currentage = this.capitalizeFirstLetter(this.props.router.location.pathname);
 
         document.title =
-          currentage + " | Chatvia - Responsive Bootstrap 5 Admin Dashboard";
+          currentage;
     }
     render() {
         return <React.Fragment>

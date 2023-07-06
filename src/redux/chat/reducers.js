@@ -18,7 +18,7 @@ const INIT_STATE = {
 	active_user : 0,
     users: [
         //admin is sender and user in receiver
-        { id : 0, name : "FilmiGpt", profilePicture : avatar2, status : "online", unRead : 0, roomType : "contact", isGroup: false,
+        { id : 0, name : "FilmiChidiya", profilePicture : avatar2, status : "online", unRead : 0, roomType : "contact", isGroup: false,
         initialconv: true, 
             messages: [] }
     ],
