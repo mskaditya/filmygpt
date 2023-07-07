@@ -53,10 +53,7 @@ function* fullUser({ payload: user }) {
             
         } else {
             const response = yield call(sendMessage, user);
-            console.log([response.body]);
-            yield put(fullUserSuccess([response.body]));
-           
-            
+            yield put(fullUserSuccess(response.body));
         }
     } catch (error) {
         yield put(chatApiError(error));

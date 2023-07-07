@@ -20,7 +20,30 @@ const INIT_STATE = {
         //admin is sender and user in receiver
         { id : 0, name : "FilmiChidiya", profilePicture : avatar2, status : "online", unRead : 0, roomType : "contact", isGroup: false,
         initialconv: true, 
-            messages: [] }
+            messages: [] },
+            ,
+            {
+                id: 1, name: "filmyfy", profilePicture: avatar3, status: "away", unRead: "02", isGroup: false,
+                initialconv: true, messages: []
+            },
+            {
+                id: 13, name: "sharukh", profilePicture: "Null", unRead: 0, isGroup: true,
+                initialconv: true, messages: []
+            },
+    
+            {
+                id: 4, name: "rajnikanth", profilePicture: avatar4, status: "online", unRead: 0, isGroup: false, isTyping: false,
+                initialconv: true, messages: []
+            },
+            {
+                id: 5, name: "sunnydoel", profilePicture: "Null", unRead: "01", isGroup: true,
+                initialconv: true, messages: []
+            },
+            {
+                id: 6, name: "gabbar", profilePicture: avatar4, status: "online", unRead: 0, isGroup: false, isTyping: false,
+                initialconv: true, messages: []
+            }
+
     ],
     groups : [
         { gourpId : 1, name : "#General", profilePicture : "Null", isGroup : true, unRead : 0, desc : "General Group",
@@ -126,7 +149,7 @@ const Chat = (state = INIT_STATE, action) => {
                 user : action.payload };
 
         case FULL_USER_SUCCESS:
-            return { ...state, users: action.payload, loading: false, error: null };             
+            return { ...state, user: action.payload, loading: false, error: null };             
 
         case ADD_LOGGED_USER:
             const newUser =  action.payload

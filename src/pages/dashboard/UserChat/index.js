@@ -37,9 +37,24 @@ function UserChat(props) {
     //userType must be required
     //const [allUsers] = useState(props.recentChatList);
     const [chatMessages, setchatMessages] = useState(props.recentChatList[props.active_user].messages);
+    const [initializedUsers, setInitializedUsers] = useState([]);
+
 
     useEffect(() => {
-        setchatMessages(props.recentChatList[props.active_user].messages);
+        console.log("came here in dep")
+        if (props.user != null) {
+            props.recentChatList.forEach(user => {
+                if (user.id == props.user.id) {
+                    user.initialconv = props.user?.initialconv ?? false;
+                    user.messages = props.user?.messages ?? [];
+                }
+            });
+            setchatMessages(props.recentChatList[props.active_user].messages);
+            setInitializedUsers(prevUsers => [...prevUsers, props.user]);
+        }
+        else {
+            setchatMessages(props.recentChatList[props.active_user].messages);
+        }
 
         // chatContainerRef.current.recalculate();
         // if (chatContainerRef.current.el) {
@@ -47,11 +62,13 @@ function UserChat(props) {
         // }
 
         scrolltoBottom("use effect");
-    }, [props.active_user, props.recentChatList]);
+    }, [props.active_user, props.recentChatList, props.user]);
 
     useEffect(() => {
-        getInitialIceBreaker();
-    }, []);
+        if (initializedUsers.find(x => x.id == props.recentChatList[props.active_user].id) == null) {
+            getInitialIceBreaker();
+        }
+    }, [props.active_user]);
 
 
     const toggle = () => setModal(!modal);
@@ -144,8 +161,6 @@ function UserChat(props) {
     }
 
     function scrolltoBottom(type) {
-        console.log(type)
-
         if (chatContainerRef.current) {
             const { scrollHeight, clientHeight } = chatContainerRef.current;
             chatContainerRef.current.scrollTop = scrollHeight - clientHeight;
@@ -169,7 +184,7 @@ function UserChat(props) {
 
     return (
         <React.Fragment>
-            <div className="user-chat w-100 overflow-hidden user-chat-show">
+            <div className="user-chat w-100 overflow-hidden">
 
                 <div className="d-lg-flex">
 
@@ -245,7 +260,7 @@ function UserChat(props) {
                                                                         !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
                                                                     }
                                                                 </div>
-                                                                {/* {
+                                                                {
                                                                     !chat.isTyping &&
                                                                     <UncontrolledDropdown className="align-self-start">
                                                                         <DropdownToggle tag="a">
@@ -258,7 +273,7 @@ function UserChat(props) {
                                                                             <DropdownItem onClick={() => deleteMessage(chat.id)}>Delete <i className="ri-delete-bin-line float-end text-muted"></i></DropdownItem>
                                                                         </DropdownMenu>
                                                                     </UncontrolledDropdown>
-                                                                } */}
+                                                                }
 
                                                             </div>
                                                             {
@@ -404,9 +419,9 @@ function UserChat(props) {
 }
 
 const mapStateToProps = (state) => {
-    const { active_user, users } = state.Chat;
+    const { active_user, user } = state.Chat;
     const { userSidebar } = state.Layout;
-    return { active_user, users, userSidebar };
+    return { active_user, userSidebar, user };
 };
 
 export default withRouter(connect(mapStateToProps, { openUserSidebar, setFullUser })(UserChat));
