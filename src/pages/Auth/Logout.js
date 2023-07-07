@@ -21,7 +21,7 @@ const Logout = (props) => {
     }, [dispatch, props.router.navigate]);
 
     if (isUserLogout) {
-        console.log("isUserLogout",isUserLogout)
+        // console.log("isUserLogout",isUserLogout)
         return <Navigate to="/login" />;
       }
 

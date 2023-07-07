@@ -41,10 +41,9 @@ function UserChat(props) {
 
 
     useEffect(() => {
-        console.log("came here in dep")
         if (props.user != null) {
             props.recentChatList.forEach(user => {
-                if (user.id == props.user.id) {
+                if (user.id === props.user.id) {
                     user.initialconv = props.user?.initialconv ?? false;
                     user.messages = props.user?.messages ?? [];
                 }
@@ -61,11 +60,11 @@ function UserChat(props) {
         //     chatContainerRef.current.getScrollElement().scrollTop = chatContainerRef.current.getScrollElement().scrollHeight;
         // }
 
-        scrolltoBottom("use effect");
+        scrolltoBottom();
     }, [props.active_user, props.recentChatList, props.user]);
 
     useEffect(() => {
-        if (initializedUsers.find(x => x.id == props.recentChatList[props.active_user].id) == null) {
+        if (initializedUsers.find(x => x.id === props.recentChatList[props.active_user].id) == null) {
             getInitialIceBreaker();
         }
     }, [props.active_user]);
