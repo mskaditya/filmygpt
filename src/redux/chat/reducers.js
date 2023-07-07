@@ -29,7 +29,6 @@ const INIT_STATE = {
             initialconv: true,
             messages: []
         },
-        ,
         {
             id: "2d936cce-8cc5-46e1-8159-e6ce8d922568", name: "filmyfy", botId: "filmyfy", profilePicture: avatar1, status: "online", unRead: 0, isGroup: false,
             initialconv: true, messages: []
