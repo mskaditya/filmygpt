@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //Import Components
-// import ChatLeftSidebar from "./ChatLeftSidebar";
+import ChatLeftSidebar from "./ChatLeftSidebar";
 import UserChat from "./UserChat/";
 
 import { connect } from "react-redux";
@@ -11,7 +11,7 @@ class Index extends Component {
         return (
             <React.Fragment>
                 {/* chat left sidebar */}
-                {/* <ChatLeftSidebar recentChatList={this.props.users} /> */}
+                <ChatLeftSidebar recentChatList={this.props.users} />
 
                 {/* user chat */}
                 <UserChat recentChatList={this.props.users} />

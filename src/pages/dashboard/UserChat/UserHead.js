@@ -46,10 +46,10 @@ function UserHead(props) {
                 <Row className="align-items-center">
                     <Col sm={4} xs={8}>
                         <div className="d-flex align-items-center">
-                            {/* <div className="d-block d-lg-none me-2 ms-0">
+                            <div className="d-block d-lg-none me-2 ms-0">
                                 <Link to="#" onClick={(e) => closeUserChat(e)} className="user-chat-remove text-muted font-size-16 p-2">
                                     <i className="ri-arrow-left-s-line"></i></Link>
-                            </div> */}
+                            </div>
                             {
                                 props.users[props.active_user].profilePicture !== "Null" ?
                                     <div className="me-3 ms-0">

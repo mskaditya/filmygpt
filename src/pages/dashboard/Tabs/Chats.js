@@ -131,11 +131,11 @@ class Chats extends Component {
                     </div>
 
                     {/* online users */}
-                    <OnlineUsers />
+                    {/* <OnlineUsers /> */}
 
                     {/* Start chat-message-list  */}
                     <div>
-                        <h5 className="mb-3 px-3 font-size-16">Recent</h5>
+                        <h5 className="mb-3 px-3 font-size-16">Bots</h5>
                         <SimpleBar className="chat-message-list">
 
                             <ul className="list-unstyled chat-list chat-user-list" id="chat-list">
@@ -196,7 +196,7 @@ class Chats extends Component {
 
                                                         </p>
                                                     </div>
-                                                    <div className="font-size-11">{chat.messages && chat.messages.length > 0 ? chat.messages[(chat.messages).length - 1].time : null}</div>
+                                                    <div className="font-size-11">{chat.messages && chat.messages.length > 0 ? new Date(chat.messages[(chat.messages).length - 1].time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase() : null}</div>
                                                     {chat.unRead === 0 ? null :
                                                         <div className="unread-message" id={"unRead" + chat.id}>
                                                             <span className="badge badge-soft-danger rounded-pill">{chat.messages && chat.messages.length > 0 ? chat.unRead >= 20 ? chat.unRead + "+" : chat.unRead : ""}</span>
