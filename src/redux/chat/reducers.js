@@ -30,7 +30,7 @@ const INIT_STATE = {
             messages: []
         },
         {
-            id: "78a2620b-b9c3-4a27-b729-4cb0fbf40fe9", name: "Teekhi Chidiya", botId: "teekhi_chidiya", profilePicture: avatar2, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            id: "466c629b-9c71-45d0-9d60-4ea46ea0b0af", name: "Teekhi Chidiya", botId: "teekhi_chidiya", profilePicture: avatar2, status: "online", unRead: 0, roomType: "contact", isGroup: false,
             initialconv: true,
             messages: []
         },
