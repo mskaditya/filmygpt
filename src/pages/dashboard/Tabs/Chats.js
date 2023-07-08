@@ -131,11 +131,11 @@ class Chats extends Component {
                     </div>
 
                     {/* online users */}
-                    <OnlineUsers />
+                    {/* <OnlineUsers /> */}
 
                     {/* Start chat-message-list  */}
                     <div>
-                        <h5 className="mb-3 px-3 font-size-16">Recent</h5>
+                        <h5 className="mb-3 px-3 font-size-16">Bots</h5>
                         <SimpleBar className="chat-message-list">
 
                             <ul className="list-unstyled chat-list chat-user-list" id="chat-list">
@@ -158,7 +158,7 @@ class Chats extends Component {
                                                             </div>
                                                             :
                                                             <div className={"chat-user-img " + chat.status + " align-self-center me-3 ms-0"}>
-                                                                <img src={chat.profilePicture} className="rounded-circle avatar-xs" alt="chatvia" />
+                                                                <img src={chat.profilePicture} className="rounded-circle avatar-xs" alt="filmigpt" />
                                                                 {
                                                                     chat.status && <span className="user-status"></span>
                                                                                                                                    
@@ -187,7 +187,7 @@ class Chats extends Component {
                                                                             chat.messages && (chat.messages.length > 0 && chat.messages[(chat.messages).length - 1].isFileMessage === true) ? <i className="ri-file-text-fill align-middle me-1"></i> : null
                                                                         }
                                                                         {
-                                                                        chat.messages && chat.messages.length > 0 ? chat.messages[(chat.messages).length - 1].message : null
+                                                                        chat.messages && chat.messages.length > 0 ? chat.messages[(chat.messages).length - 1].content : null
                                                                         }
                                                                     </>
                                                             }
@@ -196,7 +196,7 @@ class Chats extends Component {
 
                                                         </p>
                                                     </div>
-                                                    <div className="font-size-11">{chat.messages && chat.messages.length > 0 ? chat.messages[(chat.messages).length - 1].time : null}</div>
+                                                    <div className="font-size-11">{chat.messages && chat.messages.length > 0 ? new Date(chat.messages[(chat.messages).length - 1].time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase() : null}</div>
                                                     {chat.unRead === 0 ? null :
                                                         <div className="unread-message" id={"unRead" + chat.id}>
                                                             <span className="badge badge-soft-danger rounded-pill">{chat.messages && chat.messages.length > 0 ? chat.unRead >= 20 ? chat.unRead + "+" : chat.unRead : ""}</span>

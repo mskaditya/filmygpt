@@ -31,7 +31,7 @@ class Index extends Component {
         let currentage = this.capitalizeFirstLetter(this.props.router.location.pathname);
 
         //set document title according to page path name
-        document.title = currentage + " | Chatvia - Responsive Bootstrap 5 Admin Dashboard";
+        document.title = currentage;
     }
     
     render() {
@@ -39,7 +39,7 @@ class Index extends Component {
             <React.Fragment>
                 <div className="layout-wrapper d-lg-flex">
                     {/* left sidebar menu */}
-                    <LeftSidebarMenu />
+                    {/* <LeftSidebarMenu /> */}
                         {/* render page content */}
                         {this.props.children}
                 </div>

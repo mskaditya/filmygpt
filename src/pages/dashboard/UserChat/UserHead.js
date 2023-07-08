@@ -53,7 +53,7 @@ function UserHead(props) {
                             {
                                 props.users[props.active_user].profilePicture !== "Null" ?
                                     <div className="me-3 ms-0">
-                                        <img src={props.users[props.active_user].profilePicture} className="rounded-circle avatar-xs" alt="chatvia" />
+                                        <img src={props.users[props.active_user].profilePicture} className="rounded-circle avatar-xs" alt="filmigpt" />
                                     </div>
                                     : <div className="chat-user-img align-self-center me-3">
                                         <div className="avatar-xs">
@@ -101,7 +101,7 @@ function UserHead(props) {
                             </div>
                         </div>
                     </Col>
-                    <Col sm={8} xs={4} >
+                    {/* <Col sm={8} xs={4} >
                         <ul className="list-inline user-chat-nav text-end mb-0">
 
                             <li className="list-inline-item">
@@ -148,7 +148,7 @@ function UserHead(props) {
                             </li>
 
                         </ul>
-                    </Col>
+                    </Col> */}
                 </Row>
             </div>
 

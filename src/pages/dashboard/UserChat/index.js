@@ -26,7 +26,7 @@ import { useTranslation } from 'react-i18next';
 
 function UserChat(props) {
 
-    const ref = useRef();
+    const chatContainerRef = useRef();
 
     const [modal, setModal] = useState(false);
 
@@ -35,18 +35,51 @@ function UserChat(props) {
 
     //demo conversation messages
     //userType must be required
-    const [allUsers] = useState(props.recentChatList);
+    //const [allUsers] = useState(props.recentChatList);
     const [chatMessages, setchatMessages] = useState(props.recentChatList[props.active_user].messages);
+    const [initializedUsers, setInitializedUsers] = useState([]);
+
 
     useEffect(() => {
-        setchatMessages(props.recentChatList[props.active_user].messages);
-        ref.current.recalculate();
-        if (ref.current.el) {
-            ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight;
+        if (props.user != null) {
+            props.recentChatList.forEach(user => {
+                if (user.id === props.user.id) {
+                    user.initialconv = props.user?.initialconv ?? false;
+                    user.messages = props.user?.messages ?? [];
+                }
+            });
+            setchatMessages(props.recentChatList[props.active_user].messages);
+            setInitializedUsers(prevUsers => [...prevUsers, props.user]);
         }
-    }, [props.active_user, props.recentChatList]);
+        else {
+            setchatMessages(props.recentChatList[props.active_user].messages);
+        }
+
+        // chatContainerRef.current.recalculate();
+        // if (chatContainerRef.current.el) {
+        //     chatContainerRef.current.getScrollElement().scrollTop = chatContainerRef.current.getScrollElement().scrollHeight;
+        // }
+
+        scrolltoBottom();
+    }, [props.active_user, props.recentChatList, props.user]);
+
+    useEffect(() => {
+        if (initializedUsers.find(x => x.id === props.recentChatList[props.active_user].id) == null) {
+            getInitialIceBreaker();
+        }
+    }, [props.active_user]);
+
 
     const toggle = () => setModal(!modal);
+
+    const getInitialIceBreaker = () => {
+        let userData = { ...props.recentChatList[props.active_user]};
+        userData.messages = [];
+        userData.isTyping = false;
+        props.setFullUser(userData);
+        scrolltoBottom("initial message");
+    }
+
 
     const addMessage = (message, type) => {
         var messageObj = null;
@@ -59,12 +92,13 @@ function UserChat(props) {
             case "textMessage":
                 messageObj = {
                     id: chatMessages.length + 1,
-                    message: message,
-                    time: "00:" + n,
-                    userType: "sender",
+                    content: message,
+                    time: d,
+                    userType: "user",
                     image: avatar4,
                     isFileMessage: false,
-                    isImageMessage: false
+                    isImageMessage: false,
+                    role: "user"
                 }
                 break;
 
@@ -75,10 +109,11 @@ function UserChat(props) {
                     fileMessage: message.name,
                     size: message.size,
                     time: "00:" + n,
-                    userType: "sender",
+                    userType: "user",
                     image: avatar4,
                     isFileMessage: true,
-                    isImageMessage: false
+                    isImageMessage: false,
+                    role: "user"
                 }
                 break;
 
@@ -93,10 +128,11 @@ function UserChat(props) {
                     imageMessage: imageMessage,
                     size: message.size,
                     time: "00:" + n,
-                    userType: "sender",
+                    userType: "user",
                     image: avatar4,
                     isImageMessage: true,
-                    isFileMessage: false
+                    isFileMessage: false,
+                    role: "user"
                 }
                 break;
 
@@ -107,18 +143,30 @@ function UserChat(props) {
         //add message object to chat        
         setchatMessages([...chatMessages, messageObj]);
 
-        let copyallUsers = [...allUsers];
-        copyallUsers[props.active_user].messages = [...chatMessages, messageObj];
-        copyallUsers[props.active_user].isTyping = false;
+        let copyallUsers = props.recentChatList[props.active_user];
+        
+
+
+        copyallUsers.messages = [...chatMessages, messageObj];
+        copyallUsers.isTyping = false;
         props.setFullUser(copyallUsers);
 
-        scrolltoBottom();
+        // chatContainerRef.current.recalculate();
+        // if (chatContainerRef.current.el) {
+        //     chatContainerRef.current.getScrollElement().scrollTop = chatContainerRef.current.getScrollElement().scrollHeight;
+        // }
+
+        scrolltoBottom("new message");
     }
 
-    function scrolltoBottom() {
-        if (ref.current.el) {
-            ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight;
-        }
+    function scrolltoBottom(type) {
+        if (chatContainerRef.current) {
+            const { scrollHeight, clientHeight } = chatContainerRef.current;
+            chatContainerRef.current.scrollTop = scrollHeight - clientHeight;
+          }
+        // if (chatContainerRef.current.el) {
+        //     chatContainerRef.current.getScrollElement().scrollTop = chatContainerRef.current.getScrollElement().scrollHeight;
+        // }
     }
 
 
@@ -146,7 +194,7 @@ function UserChat(props) {
 
                         <SimpleBar
                             style={{ maxHeight: "100%" }}
-                            ref={ref}
+                            ref={chatContainerRef}
                             className="chat-conversation p-3 p-lg-4"
                             id="messages">
                             <ul className="list-unstyled mb-0">
@@ -160,11 +208,11 @@ function UserChat(props) {
                                             </div>
                                         </li> :
                                             (props.recentChatList[props.active_user].isGroup === true) ?
-                                                <li key={key} className={chat.userType === "sender" ? "right" : ""}>
+                                                <li key={key} className={chat.role === "user" ? "right" : ""}>
                                                     <div className="conversation-list">
 
                                                         <div className="chat-avatar">
-                                                            {chat.userType === "sender" ? <img src={avatar1} alt="chatvia" /> :
+                                                            {chat.role === "user" ? <img src={avatar1} alt="filmigpt" /> :
                                                                 props.recentChatList[props.active_user].profilePicture === "Null" ?
                                                                     <div className="chat-user-img align-self-center me-3">
                                                                         <div className="avatar-xs">
@@ -173,7 +221,7 @@ function UserChat(props) {
                                                                             </span>
                                                                         </div>
                                                                     </div>
-                                                                    : <img src={props.recentChatList[props.active_user].profilePicture} alt="chatvia" />
+                                                                    : <img src={props.recentChatList[props.active_user].profilePicture} alt="filmigpt" />
                                                             }
                                                         </div>
 
@@ -181,9 +229,9 @@ function UserChat(props) {
                                                             <div className="ctext-wrap">
                                                                 <div className="ctext-wrap-content">
                                                                     {
-                                                                        chat.message &&
+                                                                        chat.content &&
                                                                         <p className="mb-0">
-                                                                            {chat.message}
+                                                                            {chat.content}
                                                                         </p>
                                                                     }
                                                                     {
@@ -208,7 +256,7 @@ function UserChat(props) {
                                                                         </p>
                                                                     }
                                                                     {
-                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{chat.time}</span></p>
+                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
                                                                     }
                                                                 </div>
                                                                 {
@@ -228,24 +276,24 @@ function UserChat(props) {
 
                                                             </div>
                                                             {
-                                                                <div className="conversation-name">{chat.userType === "sender" ? "Patricia Smith" : chat.userName}</div>
+                                                                <div className="conversation-name">{chat.role === "user" ? "You" : chat.userName}</div>
                                                             }
                                                         </div>
                                                     </div>
                                                 </li>
                                                 :
-                                                <li key={key} className={chat.userType === "sender" ? "right" : ""}>
+                                                <li key={key} className={chat.role === "user" ? "right" : ""}>
                                                     <div className="conversation-list">
                                                         {
                                                             //logic for display user name and profile only once, if current and last messaged sent by same receiver
-                                                            chatMessages[key + 1] ? chatMessages[key].userType === chatMessages[key + 1].userType ?
+                                                            chatMessages[key + 1] ? chatMessages[key].role === chatMessages[key + 1].role ?
 
                                                                 <div className="chat-avatar">
                                                                     <div className="blank-div"></div>
                                                                 </div>
                                                                 :
                                                                 <div className="chat-avatar">
-                                                                    {chat.userType === "sender" ? <img src={avatar1} alt="chatvia" /> :
+                                                                    {chat.role === "user" ? <img src={avatar1} alt="filmigpt" /> :
                                                                         props.recentChatList[props.active_user].profilePicture === "Null" ?
                                                                             <div className="chat-user-img align-self-center me-3">
                                                                                 <div className="avatar-xs">
@@ -254,11 +302,11 @@ function UserChat(props) {
                                                                                     </span>
                                                                                 </div>
                                                                             </div>
-                                                                            : <img src={props.recentChatList[props.active_user].profilePicture} alt="chatvia" />
+                                                                            : <img src={props.recentChatList[props.active_user].profilePicture} alt="filmigpt" />
                                                                     }
                                                                 </div>
                                                                 : <div className="chat-avatar">
-                                                                    {chat.userType === "sender" ? <img src={avatar1} alt="chatvia" /> :
+                                                                    {chat.role === "user" ? <img src={avatar1} alt="filmigpt" /> :
                                                                         props.recentChatList[props.active_user].profilePicture === "Null" ?
                                                                             <div className="chat-user-img align-self-center me-3">
                                                                                 <div className="avatar-xs">
@@ -267,7 +315,7 @@ function UserChat(props) {
                                                                                     </span>
                                                                                 </div>
                                                                             </div>
-                                                                            : <img src={props.recentChatList[props.active_user].profilePicture} alt="chatvia" />
+                                                                            : <img src={props.recentChatList[props.active_user].profilePicture} alt="filmigpt" />
                                                                     }
                                                                 </div>
                                                         }
@@ -277,9 +325,9 @@ function UserChat(props) {
                                                             <div className="ctext-wrap">
                                                                 <div className="ctext-wrap-content">
                                                                     {
-                                                                        chat.message &&
+                                                                        chat.content &&
                                                                         <p className="mb-0">
-                                                                            {chat.message}
+                                                                            {chat.content}
                                                                         </p>
                                                                     }
                                                                     {
@@ -304,10 +352,10 @@ function UserChat(props) {
                                                                         </p>
                                                                     }
                                                                     {
-                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{chat.time}</span></p>
+                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
                                                                     }
                                                                 </div>
-                                                                {
+                                                                {/* {
                                                                     !chat.isTyping &&
                                                                     <UncontrolledDropdown className="align-self-start">
                                                                         <DropdownToggle tag="a">
@@ -320,20 +368,20 @@ function UserChat(props) {
                                                                             <DropdownItem onClick={() => deleteMessage(chat.id)}>Delete <i className="ri-delete-bin-line float-end text-muted"></i></DropdownItem>
                                                                         </DropdownMenu>
                                                                     </UncontrolledDropdown>
-                                                                }
+                                                                } */}
 
                                                             </div>
                                                             {
                                                                 chatMessages[key + 1] ? 
-                                                                chatMessages[key].userType === chatMessages[key + 1].userType ? null : 
+                                                                chatMessages[key].role === chatMessages[key + 1].role ? null : 
 
-                                                                <div className="conversation-name">{chat.userType === "sender" ? 
+                                                                <div className="conversation-name">{chat.role === "user" ? 
 
-                                                                "Patricia Smith" : props.recentChatList[props.active_user].name}</div> : 
+                                                                "You" : props.recentChatList[props.active_user].name}</div> : 
 
-                                                                <div className="conversation-name">{chat.userType === "sender" ? 
+                                                                <div className="conversation-name">{chat.role === "user" ? 
                                                                 
-                                                                "Admin" : props.recentChatList[props.active_user].name}</div>
+                                                                "You" : props.recentChatList[props.active_user].name}</div>
                                                             }
 
                                                         </div>
@@ -370,9 +418,9 @@ function UserChat(props) {
 }
 
 const mapStateToProps = (state) => {
-    const { active_user } = state.Chat;
+    const { active_user, user } = state.Chat;
     const { userSidebar } = state.Layout;
-    return { active_user, userSidebar };
+    return { active_user, userSidebar, user };
 };
 
 export default withRouter(connect(mapStateToProps, { openUserSidebar, setFullUser })(UserChat));

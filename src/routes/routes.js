@@ -14,17 +14,19 @@ const LockScreen = React.lazy(() => import("../pages/Auth/LockScreen"));
 
 // declare all routes
 const authProtectedRoutes = [
-  { path: "/dashboard", component: <Dashboard /> },
   { path: "/pages-starter", component: <StarterPage /> },
-
-    // this route should be at the end of all other routes
-  // eslint-disable-next-line react/display-name
+  { path: "*", component: <Navigate to="/dashboard" /> },
+  { path: "/dashboard", component: <Dashboard /> },
   {
     path: "/",
     exact: true,
     component: <Navigate to="/dashboard" />,
-  },
-  { path: "*", component: <Navigate to="/dashboard" /> },
+  }
+
+    // this route should be at the end of all other routes
+  // eslint-disable-next-line react/display-name
+ 
+ 
 ];
 
 const publicRoutes = [
@@ -33,6 +35,7 @@ const publicRoutes = [
   { path: "/forget-password", component: <ForgetPassword /> },
   { path: "/register", component: <Register /> },
   { path: "/lock-screen", component: <LockScreen />}
+
 ];
 
 export { authProtectedRoutes, publicRoutes };
