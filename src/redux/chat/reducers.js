@@ -44,7 +44,7 @@ const INIT_STATE = {
             initialconv: true, messages: []
         },
         {
-            id: "5de61b88-8164-43a1-9cf8-6527a1459b56", name: "Shahrukh King Khan", botId: "sharukh_khan", profilePicture: avatar9, status: "online", unRead: 0, isGroup: true,
+            id: "5de61b88-8164-43a1-9cf8-6527a1459b56", name: "Shahrukh Khan", botId: "sharukh_khan", profilePicture: avatar9, status: "online", unRead: 0, isGroup: true,
             initialconv: true, messages: []
         },
 
