@@ -53,12 +53,12 @@ const Routes = () => {
                             path={route.path} 
                             layout={AuthLayout} 
                             element={
-                                <AuthProtected isAuthProtected={true}>
+                                <AuthProtected isAuthProtected={false}>
                                     <AuthLayout>{route.component}</AuthLayout>
                                 </AuthProtected>
                             }
                             key={idx} 
-                            isAuthProtected={true} 
+                            isAuthProtected={false} 
                         />
                     )}
                 </SwitchRoute>
