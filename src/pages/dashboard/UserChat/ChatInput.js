@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Input, Row, Col, UncontrolledTooltip, ButtonDropdown, DropdownToggle, DropdownMenu, Label, Form } from "reactstrap";
 import EmojiPicker from 'emoji-picker-react';
 
 function ChatInput(props) {
+    const [inputPlaceholder, setinputPlaceholder] = useState(props.activeUserChatInputPlaceholder)
     const [textMessage, settextMessage] = useState("");
     const [isOpen, setisOpen] = useState(false);
     const [file, setfile] = useState({
@@ -12,6 +13,10 @@ function ChatInput(props) {
     const [fileImage, setfileImage] = useState("")
 
     const toggle = () => setisOpen(!isOpen);
+
+    useEffect(() => {
+        setinputPlaceholder(props.activeUserChatInputPlaceholder)
+    }, [props.activeUserChatInputPlaceholder])
 
     //function for text input value change
     const handleChange = e => {
@@ -69,7 +74,7 @@ function ChatInput(props) {
                     <Row className='g-0'>
                         <Col>
                             <div>
-                                <Input type="text" value={textMessage} onChange={handleChange} className="form-control form-control-lg bg-light border-light" placeholder="aapna jawab yahan likhe...thoda masala lagana mat bholein..." />
+                                <Input type="text" value={textMessage} onChange={handleChange} className="form-control form-control-lg bg-light border-light" placeholder={inputPlaceholder} />
                             </div>
                         </Col>
                         <Col xs="auto">

@@ -66,9 +66,10 @@ function UserHead(props) {
 
                             <div className="flex-grow-1 overflow-hidden">
                                 <h5 className="font-size-16 mb-0 text-truncate">
-                                    <Link to="#" onClick={(e) => openUserSidebar(e)} className="text-reset user-profile-show">
+                                    {props.users[props.active_user].name}
+                                    {/* <Link to="#" onClick={(e) => openUserSidebar(e)} className="text-reset user-profile-show">
                                         {props.users[props.active_user].name}
-                                    </Link>
+                                    </Link> */}
                                     {(() => {
                                         switch (props.users[props.active_user].status) {
                                             case "online":
