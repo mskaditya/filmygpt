@@ -16,7 +16,8 @@ class Index extends Component {
     
     //function for capital first letter of current page pathname
     capitalizeFirstLetter = string => {
-        return string.charAt(1).toUpperCase() + string.slice(2);
+        return ''
+        // return string.charAt(1).toUpperCase() + string.slice(2);
     };
 
     componentDidMount(){

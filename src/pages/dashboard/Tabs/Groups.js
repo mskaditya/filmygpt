@@ -196,7 +196,7 @@ class Groups extends Component {
                                                 <div className="chat-user-img me-3 ms-0">
                                                     <div className="avatar-xs">
                                                         <span className="avatar-title rounded-circle bg-primary-subtle text-primary">
-                                                            {group.name.charAt(1)}
+                                                            {/* {group.name.charAt(1)} */}
                                                         </span>
                                                     </div>
                                                 </div>

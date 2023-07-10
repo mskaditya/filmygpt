@@ -74,7 +74,7 @@ function UserProfileSidebar(props) {
                             props.activeUser.profilePicture === "Null" ?
                                 <div className="avatar-lg">
                                     <span className="avatar-title rounded-circle bg-primary-subtle text-primary font-size-24">
-                                        {props.activeUser.name.charAt(0)}
+                                        {/* {props.activeUser.name.charAt(0)} */} 
                                     </span>
                                 </div>
                                 : <img src={props.activeUser.profilePicture} className="rounded-circle avatar-lg img-thumbnail" alt="filmigpt" />

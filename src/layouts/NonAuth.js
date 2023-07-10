@@ -12,7 +12,8 @@ class NonAuth extends Component {
     }
     
     capitalizeFirstLetter = string => {
-        return string.charAt(1).toUpperCase() + string.slice(2);
+        return '';
+        // return string.charAt(1).toUpperCase() + string.slice(2);
     };
 
     componentDidMount(){
