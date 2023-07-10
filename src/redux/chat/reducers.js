@@ -35,7 +35,7 @@ const INIT_STATE = {
             messages: []
         },
         {
-            id: "78a2620b-b9c3-4a27-b729-4cb0fbf40fe9", name: "Pyari Sharmili", botId: "pyari_sharmili", profilePicture: avatar2, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            id: "78a2620b-b9c3-4a27-b729-4cb0fbf40fe9", name: "Chulbuli Sharmili", botId: "chulbuli_sharmili", profilePicture: avatar2, status: "online", unRead: 0, roomType: "contact", isGroup: false,
             initialconv: true,
             messages: []
         },
