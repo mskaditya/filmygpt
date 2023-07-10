@@ -40,22 +40,22 @@ const INIT_STATE = {
             messages: []
         },
         {
-            id: "2d936cce-8cc5-46e1-8159-e6ce8d922568", name: "Filmyfy", botId: "filmyfy", profilePicture: avatar1, status: "online", unRead: 0, isGroup: false,
+            id: "2d936cce-8cc5-46e1-8159-e6ce8d922568", name: "Filmyfy", botId: "filmyfy", profilePicture: avatar1, status: "online", unRead: 0,roomType: "contact", isGroup: false,isTyping: false,
             initialconv: true, messages: []
         },
         {
-            id: "5de61b88-8164-43a1-9cf8-6527a1459b56", name: "Shahrukh Khan", botId: "sharukh_khan", profilePicture: avatar9, status: "online", unRead: 0, isGroup: true,
+            id: "5de61b88-8164-43a1-9cf8-6527a1459b56", name: "Shahrukh Khan", botId: "sharukh_khan", profilePicture: avatar9, status: "online", unRead: 0,roomType: "contact", isGroup: false,
             initialconv: true, messages: []
         },
 
         {
-            id: "78ccca4d-4f56-423c-b8d4-244d6a391fc4", name: "Rajinikanth", botId: "rajinikanth", profilePicture: avatar10, status: "online", unRead: 0, isGroup: false, isTyping: false,
+            id: "78ccca4d-4f56-423c-b8d4-244d6a391fc4", name: "Rajinikanth", botId: "rajinikanth", profilePicture: avatar10, status: "online", unRead: 0, roomType: "contact", isGroup: false, isTyping: false,
             initialconv: true, messages: []
         },
         {
-            id: "33941093-6455-44e5-8bd6-5d73c10a96f7", name: "Sunny Doel", botId: "sunny_doel", profilePicture: avatar11, status: "online", unRead: 0, isGroup: true,
+            id: "33941093-6455-44e5-8bd6-5d73c10a96f7", name: "Sunny Doel", botId: "sunny_doel", profilePicture: avatar11, status: "online", unRead: 0, roomType: "contact", isGroup: false,isTyping: false,
             initialconv: true, messages: []
-        },
+        }
     ],
     groups: [
         {

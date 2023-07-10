@@ -75,7 +75,7 @@ function UserChat(props) {
     const getInitialIceBreaker = () => {
         let userData = { ...props.recentChatList[props.active_user]};
         userData.messages = [];
-        userData.isTyping = false;
+        userData.isTyping = true;
         props.setFullUser(userData);
         scrolltoBottom("initial message");
     }
@@ -143,12 +143,14 @@ function UserChat(props) {
         //add message object to chat        
         setchatMessages([...chatMessages, messageObj]);
 
+        props.recentChatList[props.active_user].isTyping = true;
+
         let copyallUsers = props.recentChatList[props.active_user];
         
 
 
         copyallUsers.messages = [...chatMessages, messageObj];
-        copyallUsers.isTyping = false;
+        copyallUsers.isTyping = true;
         props.setFullUser(copyallUsers);
 
         // chatContainerRef.current.recalculate();
