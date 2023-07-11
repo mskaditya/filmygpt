@@ -15,32 +15,33 @@ import avatar9 from "../../assets/images/users/sharuk.jpg";
 import avatar10 from "../../assets/images/users/rajnikanth.jpg";
 import avatar11 from "../../assets/images/users/sunnydoel.jpg";
 import avatar12 from "../../assets/images/users/gabbar.jpg";
-
-// import img6 from "../../assets/images/small/img-6.jpg";
-// import img4 from "../../assets/images/small/img-4.jpg";
-// import img7 from "../../assets/images/small/img-7.jpg";
+import badmash_badshah from "../../assets/images/users/4.jpg";
+import badnam_munni from "../../assets/images/users/5.jpg";
+import chulbuli_sharmili from "../../assets/images/users/8.jpg";
+import pagla_deewana from "../../assets/images/users/7.jpg";
+import ghazal_e_dil from "../../assets/images/users/7.jpg";
 
 const INIT_STATE = {
     active_user: 0,
     users: [
         //admin is sender and user in receiver
         {
-            id: "cb87efc4-740a-4406-ab35-28ab5f1bf672", name: "Badmash badshah", botId: "badmash_badshah", profilePicture: avatar2, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            id: "cb87efc4-740a-4406-ab35-28ab5f1bf672", name: "Badmash badshah", botId: "badmash_badshah", profilePicture: badmash_badshah, status: "online", unRead: 0, roomType: "contact", isGroup: false,
             initialconv: true,
             messages: []
         },
         {
-            id: "466c629b-9c71-45d0-9d60-4ea46ea0b0af", name: "Badnam Munni", botId: "badnam_munni", profilePicture: avatar2, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            id: "466c629b-9c71-45d0-9d60-4ea46ea0b0af", name: "Badnam Munni", botId: "badnam_munni", profilePicture: badnam_munni, status: "online", unRead: 0, roomType: "contact", isGroup: false,
             initialconv: true,
             messages: []
         },
         {
-            id: "78a2620b-b9c3-4a27-b729-4cb0fbf40fe9", name: "Chulbuli Sharmili", botId: "chulbuli_sharmili", profilePicture: avatar2, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            id: "78a2620b-b9c3-4a27-b729-4cb0fbf40fe9", name: "Chulbuli Sharmili", botId: "chulbuli_sharmili", profilePicture: chulbuli_sharmili, status: "online", unRead: 0, roomType: "contact", isGroup: false,
             initialconv: true,
             messages: []
         },
         {
-            id: "9010bf43-c253-4a59-9e60-af89f7f81255", name: "Pagla Deewana", botId: "pagla_deewana", profilePicture: avatar2, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            id: "9010bf43-c253-4a59-9e60-af89f7f81255", name: "Pagla Deewana", botId: "pagla_deewana", profilePicture: pagla_deewana, status: "online", unRead: 0, roomType: "contact", isGroup: false,
             initialconv: true,
             messages: []
         },
@@ -61,7 +62,7 @@ const INIT_STATE = {
             initialconv: true, messages: []
         },
         {
-            id: "2d936cce-8cc5-46e1-8159-e6ce8d922568", name: "Ghazal-e-Dil", botId: "ghazal-e-dil", profilePicture: avatar1, status: "online", unRead: 0, isGroup: false,
+            id: "2d936cce-8cc5-46e1-8159-e6ce8d922568", name: "Ghazal-e-Dil", botId: "ghazal-e-dil", profilePicture: ghazal_e_dil, status: "online", unRead: 0, isGroup: false,
             initialconv: true, messages: []
         },
     ],
