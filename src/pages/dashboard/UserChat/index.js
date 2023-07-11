@@ -74,7 +74,14 @@ function UserChat(props) {
 
     const getInitialIceBreaker = () => {
         let userData = { ...props.recentChatList[props.active_user]};
-        userData.messages = [];
+
+        let messageObj = {
+            'id': Math.floor(20 + Math.random() * (100000 - 1)), 'time':new Date(),'isImageMessage': false, 'isFileMessage': false, 'role': 'assistant', 'content': '', 'isTyping': true
+        }
+
+        setchatMessages([...chatMessages, messageObj]);
+
+        userData.messages = [messageObj];
         userData.isTyping = true;
         props.setFullUser(userData);
         scrolltoBottom("initial message");
@@ -98,7 +105,8 @@ function UserChat(props) {
                     image: avatar4,
                     isFileMessage: false,
                     isImageMessage: false,
-                    role: "user"
+                    role: "user",
+                    isTyping: false
                 }
                 break;
 
@@ -113,7 +121,8 @@ function UserChat(props) {
                     image: avatar4,
                     isFileMessage: true,
                     isImageMessage: false,
-                    role: "user"
+                    role: "user",
+                    isTyping: false
                 }
                 break;
 
@@ -132,7 +141,8 @@ function UserChat(props) {
                     image: avatar4,
                     isImageMessage: true,
                     isFileMessage: false,
-                    role: "user"
+                    role: "user",
+                    isTyping: false
                 }
                 break;
 
@@ -142,6 +152,10 @@ function UserChat(props) {
 
         //add message object to chat        
         setchatMessages([...chatMessages, messageObj]);
+        let assistantMessageObj = {
+            'id': Math.floor(20 + Math.random() * (100000 - 1)), 'time':new Date(),'isImageMessage': false, 'isFileMessage': false, 'role': 'assistant', 'content': '', 'isTyping': true
+        }
+        setchatMessages([...chatMessages, assistantMessageObj]);
 
         props.recentChatList[props.active_user].isTyping = true;
 
@@ -149,7 +163,7 @@ function UserChat(props) {
         
 
 
-        copyallUsers.messages = [...chatMessages, messageObj];
+        copyallUsers.messages = [...chatMessages, messageObj, assistantMessageObj];
         copyallUsers.isTyping = true;
         props.setFullUser(copyallUsers);
 
