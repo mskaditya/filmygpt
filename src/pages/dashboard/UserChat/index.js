@@ -82,7 +82,7 @@ function UserChat(props) {
         setchatMessages([...chatMessages, messageObj]);
 
         userData.messages = [messageObj];
-        userData.isTyping = true;
+        userData.isTyping = false;
         props.setFullUser(userData);
         scrolltoBottom("initial message");
     }
@@ -164,7 +164,7 @@ function UserChat(props) {
 
 
         copyallUsers.messages = [...chatMessages, messageObj, assistantMessageObj];
-        copyallUsers.isTyping = true;
+        copyallUsers.isTyping = false;
         props.setFullUser(copyallUsers);
 
         // chatContainerRef.current.recalculate();
