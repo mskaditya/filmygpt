@@ -159,7 +159,7 @@ const Register = (props) => {
                                             </div>
 
                                             <div className="mt-4 text-center">
-                                                <p className="text-muted mb-0">{t('By registering you agree to the Chatvia')} <Link to="#" className="text-primary">{t('Terms of Use')}</Link></p>
+                                                <p className="text-muted mb-0">{t('By registering you agree to the FilmiGPT')} <Link to="#" className="text-primary">{t('Terms of Use')}</Link></p>
                                             </div>
 
                                         </Form>
@@ -169,7 +169,7 @@ const Register = (props) => {
 
                             <div className="mt-5 text-center">
                                 <p>{t('Already have an account')} ? <Link to="/login" className="font-weight-medium text-primary"> {t('Signin')} </Link> </p>
-                                <p>© {new Date().getFullYear()} {t('Chatvia')}. {t('Crafted with')} <i className="mdi mdi-heart text-danger"></i> {t('by Themesbrand')}</p>
+                                <p>© {new Date().getFullYear()} {t('FilmiGPT')}. {t('Crafted with')} <i className="mdi mdi-heart text-danger"></i> {t('by Themesbrand')}</p>
                             </div>
                         </Col>
                     </Row>

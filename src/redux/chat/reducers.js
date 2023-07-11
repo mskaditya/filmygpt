@@ -20,6 +20,7 @@ import badnam_munni from "../../assets/images/users/5.png";
 import chulbuli_sharmili from "../../assets/images/users/8.png";
 import pagla_deewana from "../../assets/images/users/7.png";
 import ghazal_e_dil from "../../assets/images/users/10.png";
+import amitabh_bachchan from "../../assets/images/users/amitabh.png";
 
 const INIT_STATE = {
     active_user: 0,
@@ -50,7 +51,7 @@ const INIT_STATE = {
             initialconv: true, messages: []
         },
         {
-            id: "247868ec-46e2-4339-a173-10ad682527ef", name: "Amitabh Bachchan", botId: "amitabh_bachchan", profilePicture: avatar9, status: "online", unRead: 0, isGroup: true,
+            id: "247868ec-46e2-4339-a173-10ad682527ef", name: "Amitabh Bachchan", botId: "amitabh_bachchan", profilePicture: amitabh_bachchan, status: "online", unRead: 0, isGroup: true,
             initialconv: true, messages: []
         },
         {
