@@ -24,6 +24,29 @@ import amitabh_bachchan from "../../assets/images/users/amitabh.png";
 
 const INIT_STATE = {
     active_user: 0,
+    userchat_inputplaceholder : [
+        {
+            id: "78a2620b-b9c3-4a27-b729-4cb0fbf40fe9", placeholder: "Kuch meetha tho likh do"
+        },
+        {
+            id: "466c629b-9c71-45d0-9d60-4ea46ea0b0af", placeholder: "Chalo thoda attitude dikhao"
+        },
+        {
+            id: "cb87efc4-740a-4406-ab35-28ab5f1bf672", placeholder: "Jo chaho woh boldo"
+        },
+        {
+            id: "2d936cce-8cc5-46e1-8159-e6ce8d922568", placeholder: "aapna jawab yahan likhe...thoda masala lagana mat bholein..."
+        },
+        {
+            id: "5de61b88-8164-43a1-9cf8-6527a1459b56", placeholder: "Kuch Kuch type karo dost!"
+        },
+        {
+            id: "78ccca4d-4f56-423c-b8d4-244d6a391fc4", placeholder: "Bolo our Rajinikanth ka dil jeetho"
+        },
+        {
+            id: "33941093-6455-44e5-8bd6-5d73c10a96f7", placeholder: "Tumhar message ko border tho paar karao!"
+        }
+    ],
     users: [
         //admin is sender and user in receiver
         {

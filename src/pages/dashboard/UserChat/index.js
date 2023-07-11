@@ -408,7 +408,7 @@ function UserChat(props) {
                             </ModalBody>
                         </Modal>
 
-                        <ChatInput onaddMessage={addMessage} />
+                        <ChatInput onaddMessage={addMessage} activeUserChatInputPlaceholder={props.userchat_inputplaceholder.find(x => x.id == props.recentChatList[props.active_user].id)?.placeholder} />
                     </div>
 
                     <UserProfileSidebar activeUser={props.recentChatList[props.active_user]} />
@@ -420,9 +420,9 @@ function UserChat(props) {
 }
 
 const mapStateToProps = (state) => {
-    const { active_user, user } = state.Chat;
+    const { active_user, user, userchat_inputplaceholder } = state.Chat;
     const { userSidebar } = state.Layout;
-    return { active_user, userSidebar, user };
+    return { active_user, userSidebar, user , userchat_inputplaceholder};
 };
 
 export default withRouter(connect(mapStateToProps, { openUserSidebar, setFullUser })(UserChat));
