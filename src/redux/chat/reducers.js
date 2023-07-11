@@ -15,11 +15,11 @@ import avatar9 from "../../assets/images/users/sharuk.jpg";
 import avatar10 from "../../assets/images/users/rajnikanth.jpg";
 import avatar11 from "../../assets/images/users/sunnydoel.jpg";
 import avatar12 from "../../assets/images/users/gabbar.jpg";
-import badmash_badshah from "../../assets/images/users/4.jpg";
-import badnam_munni from "../../assets/images/users/5.jpg";
-import chulbuli_sharmili from "../../assets/images/users/8.jpg";
-import pagla_deewana from "../../assets/images/users/7.jpg";
-import ghazal_e_dil from "../../assets/images/users/7.jpg";
+import badmash_badshah from "../../assets/images/users/4.png";
+import badnam_munni from "../../assets/images/users/5.png";
+import chulbuli_sharmili from "../../assets/images/users/8.png";
+import pagla_deewana from "../../assets/images/users/7.png";
+import ghazal_e_dil from "../../assets/images/users/10.png";
 
 const INIT_STATE = {
     active_user: 0,
