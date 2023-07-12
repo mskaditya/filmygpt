@@ -53,7 +53,11 @@ function ChatLeftSidebar(props) {
                     {/* End settings tab-pane */}
                 </TabContent>
                 {/* end tab content */}
-
+<TabContent>
+    <div>Insta</div>
+    <div>Twitter</div>
+    <div>Threads</div>
+</TabContent>
             </div>
         </React.Fragment>
     );
