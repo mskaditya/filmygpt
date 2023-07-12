@@ -109,15 +109,15 @@ function LeftSidebarMenu(props) {
                         <UncontrolledTooltip target="Chats" placement="top">
                             Chats
                         </UncontrolledTooltip>
-                        <NavItem id="Groups">
+                        {/* <NavItem id="Groups">
                             <NavLink id="pills-groups-tab" className={classnames({ active: activeTab === 'group' })} onClick={() => { toggleTab('group'); }}>
                                 <i className="ri-group-line"></i>
                             </NavLink>
                         </NavItem>
                         <UncontrolledTooltip target="Groups" placement="top">
                             Groups
-                        </UncontrolledTooltip>
-                        <NavItem id="Contacts">
+                        </UncontrolledTooltip> */}
+                        {/* <NavItem id="Contacts">
                             <NavLink id="pills-contacts-tab" className={classnames({ active: activeTab === 'contacts' })} onClick={() => { toggleTab('contacts'); }}>
                                 <i className="ri-contacts-line"></i>
                             </NavLink>
@@ -143,7 +143,7 @@ function LeftSidebarMenu(props) {
                                 <DropdownItem divider />
                                 <DropdownItem href="/logout">Log out <i className="ri-logout-circle-r-line float-end text-muted"></i></DropdownItem>
                             </DropdownMenu>
-                        </Dropdown>
+                        </Dropdown> */}
                     </Nav>
                 </div>
                 {/* end side-menu nav */}
