@@ -272,7 +272,7 @@ function UserChat(props) {
                                                                         </p>
                                                                     }
                                                                     {
-                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
+                                                                        // !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
                                                                     }
                                                                 </div>
                                                                 {
@@ -368,7 +368,7 @@ function UserChat(props) {
                                                                         </p>
                                                                     }
                                                                     {
-                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
+                                                                        // !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
                                                                     }
                                                                 </div>
                                                                 {/* {
