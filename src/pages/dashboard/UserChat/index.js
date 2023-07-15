@@ -46,6 +46,8 @@ function UserChat(props) {
                 if (user.id === props.user.id) {
                     user.initialconv = props.user?.initialconv ?? false;
                     user.messages = props.user?.messages ?? [];
+                    user.ConversationId = props.user?.ConversationId;
+                    user.InitialConversationTimeStamp = props.user?.InitialConversationTimeStamp;
                 }
             });
             setchatMessages(props.recentChatList[props.active_user].messages);
@@ -83,6 +85,8 @@ function UserChat(props) {
 
         userData.messages = [messageObj];
         userData.isTyping = false;
+        userData.ConversationId = Math.floor(20 + Math.random() * (1000000 - 1));
+        userData.InitialConversationTimeStamp = new Date();
         props.setFullUser(userData);
         scrolltoBottom("initial message");
     }
