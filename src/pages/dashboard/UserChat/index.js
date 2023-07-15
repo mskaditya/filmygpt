@@ -27,7 +27,6 @@ import { useTranslation } from 'react-i18next';
 function UserChat(props) {
 
     const chatContainerRef = useRef();
-
     const [modal, setModal] = useState(false);
 
     /* intilize t variable for multi language implementation */
@@ -71,7 +70,6 @@ function UserChat(props) {
         }
     }, [props.active_user]);
 
-
     const toggle = () => setModal(!modal);
 
     const getInitialIceBreaker = () => {
@@ -87,6 +85,7 @@ function UserChat(props) {
         userData.isTyping = false;
         userData.ConversationId = Math.floor(20 + Math.random() * (1000000 - 1));
         userData.InitialConversationTimeStamp = new Date();
+        userData.SessionId = props.sessionId
         props.setFullUser(userData);
         scrolltoBottom("initial message");
     }
@@ -438,9 +437,9 @@ function UserChat(props) {
 }
 
 const mapStateToProps = (state) => {
-    const { active_user, user, userchat_inputplaceholder } = state.Chat;
+    const { active_user, user, userchat_inputplaceholder, sessionId } = state.Chat;
     const { userSidebar } = state.Layout;
-    return { active_user, userSidebar, user , userchat_inputplaceholder};
+    return { active_user, userSidebar, user , userchat_inputplaceholder, sessionId};
 };
 
 export default withRouter(connect(mapStateToProps, { openUserSidebar, setFullUser })(UserChat));

@@ -2,6 +2,7 @@ import {
     CHAT_USER, ACTIVE_USER, FULL_USER, ADD_LOGGED_USER, CREATE_GROUP, FULL_USER_SUCCESS, API_FAILED
 } from './constants';
 
+import { v4 as uuidv4 } from 'uuid';
 
 //Import Images
 import avatar1 from "../../assets/images/users/avatar-1.jpg";
@@ -24,6 +25,7 @@ import amitabh_bachchan from "../../assets/images/users/amitabh.png";
 
 const INIT_STATE = {
     active_user: 0,
+    sessionId: uuidv4(),
     userchat_inputplaceholder : [
         {
             id: "78a2620b-b9c3-4a27-b729-4cb0fbf40fe9", placeholder: "Kuch meetha tho likh do"
@@ -50,7 +52,7 @@ const INIT_STATE = {
     users: [
         //admin is sender and user in receiver
         {
-            id: "cb87efc4-740a-4406-ab35-28ab5f1bf672", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Badmash badshah", botId: "badmash_badshah", profilePicture: badmash_badshah, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            id: "cb87efc4-740a-4406-ab35-28ab5f1bf672", ConversationId:"", SessionId:null, InitialConversationTimeStamp:"", name: "Badmash badshah", botId: "badmash_badshah", profilePicture: badmash_badshah, status: "online", unRead: 0, roomType: "contact", isGroup: false,
             initialconv: true,
             messages: []
         },
