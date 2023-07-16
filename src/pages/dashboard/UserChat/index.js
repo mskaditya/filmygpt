@@ -184,10 +184,7 @@ function UserChat(props) {
     function scrolltoBottom(type) {
         ref.current.recalculate();
         if (ref.current.el) {
-            console.log("Scroll top" +ref.current.getScrollElement().scrollTop + 20);
-            console.log("Scroll Height" + ref.current.getScrollElement().scrollHeight);
             ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight ;
-            ref.current.getScrollElement().scrollTo(0, ref.current.getScrollElement().scrollHeight);
         }
     }
 
