@@ -44,7 +44,7 @@ function UserHead(props) {
         <React.Fragment>
             <div className="p-3 p-lg-4 border-bottom">
                 <Row className="align-items-center">
-                    <Col sm={4} xs={8}>
+                    <Col xs={12}>
                         <div className="d-flex align-items-center">
                             <div className="d-block d-lg-none me-2 ms-0">
                                 <Link to="#" onClick={(e) => closeUserChat(e)} className="user-chat-remove text-muted font-size-16 p-2">
@@ -99,8 +99,16 @@ function UserHead(props) {
                                     })()}
 
                                 </h5>
-                            </div>
-                        </div>
+                                
+                                <div className='ctext-wrap'>
+                                <h7 className="font-size-14 mb-0 text-overflow">
+                                {props.users[props.active_user].introText}
+                                </h7>
+                                </div> 
+                               </div>
+                               
+                                
+                         </div>
                     </Col>
                     {/* <Col sm={8} xs={4} >
                         <ul className="list-inline user-chat-nav text-end mb-0">
