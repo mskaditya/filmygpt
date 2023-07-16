@@ -37,6 +37,7 @@
     "redux-saga": "^1.2.3",
     "simplebar-react": "^3.2.4",
     "slick-carousel": "^1.8.1",
+    "uuidv4": "^6.2.13",
     "yup": "^1.1.1"
   },
   "scripts": {

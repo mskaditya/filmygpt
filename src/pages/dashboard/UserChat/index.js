@@ -23,11 +23,12 @@ import avatar1 from "../../../assets/images/users/avatar-1.jpg";
 
 //i18n
 import { useTranslation } from 'react-i18next';
+//uuid import
+import { v4 as uuid } from 'uuid';
 
 function UserChat(props) {
 
-    const chatContainerRef = useRef();
-
+    const ref = useRef();
     const [modal, setModal] = useState(false);
 
     /* intilize t variable for multi language implementation */
@@ -46,6 +47,8 @@ function UserChat(props) {
                 if (user.id === props.user.id) {
                     user.initialconv = props.user?.initialconv ?? false;
                     user.messages = props.user?.messages ?? [];
+                    user.ConversationId = props.user?.ConversationId;
+                    user.InitialConversationTimeStamp = props.user?.InitialConversationTimeStamp;
                 }
             });
             setchatMessages(props.recentChatList[props.active_user].messages);
@@ -69,7 +72,6 @@ function UserChat(props) {
         }
     }, [props.active_user]);
 
-
     const toggle = () => setModal(!modal);
 
     const getInitialIceBreaker = () => {
@@ -83,6 +85,9 @@ function UserChat(props) {
 
         userData.messages = [messageObj];
         userData.isTyping = false;
+        userData.ConversationId = uuid();
+        userData.InitialConversationTimeStamp = new Date();
+        userData.SessionId = props.sessionId
         props.setFullUser(userData);
         scrolltoBottom("initial message");
     }
@@ -165,6 +170,7 @@ function UserChat(props) {
 
         copyallUsers.messages = [...chatMessages, messageObj, assistantMessageObj];
         copyallUsers.isTyping = false;
+        copyallUsers.SessionId = props.sessionId;
         props.setFullUser(copyallUsers);
 
         // chatContainerRef.current.recalculate();
@@ -176,13 +182,10 @@ function UserChat(props) {
     }
 
     function scrolltoBottom(type) {
-        if (chatContainerRef.current) {
-            const { scrollHeight, clientHeight } = chatContainerRef.current;
-            chatContainerRef.current.scrollTop = scrollHeight - clientHeight;
-          }
-        // if (chatContainerRef.current.el) {
-        //     chatContainerRef.current.getScrollElement().scrollTop = chatContainerRef.current.getScrollElement().scrollHeight;
-        // }
+        ref.current.recalculate();
+        if (ref.current.el) {
+            ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight ;
+        }
     }
 
 
@@ -209,11 +212,11 @@ function UserChat(props) {
                         <UserHead />
 
                         <SimpleBar
-                            style={{ maxHeight: "100%" }}
-                            ref={chatContainerRef}
+                            // style={{ maxHeight: "100%" }}
+                            ref={ref} 
                             className="chat-conversation p-3 p-lg-4"
                             id="messages">
-                            <ul className="list-unstyled mb-0">
+                            <ul  className="list-unstyled mb-0">
 
 
                                 {
@@ -272,7 +275,7 @@ function UserChat(props) {
                                                                         </p>
                                                                     }
                                                                     {
-                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
+                                                                        // !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
                                                                     }
                                                                 </div>
                                                                 {
@@ -368,7 +371,7 @@ function UserChat(props) {
                                                                         </p>
                                                                     }
                                                                     {
-                                                                        !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
+                                                                        // !chat.isTyping && <p className="chat-time mb-0"><i className="ri-time-line align-middle"></i> <span className="align-middle">{new Date(chat.time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase()}</span></p>
                                                                     }
                                                                 </div>
                                                                 {/* {
@@ -434,9 +437,9 @@ function UserChat(props) {
 }
 
 const mapStateToProps = (state) => {
-    const { active_user, user, userchat_inputplaceholder } = state.Chat;
+    const { active_user, user, userchat_inputplaceholder, sessionId } = state.Chat;
     const { userSidebar } = state.Layout;
-    return { active_user, userSidebar, user , userchat_inputplaceholder};
+    return { active_user, userSidebar, user , userchat_inputplaceholder, sessionId};
 };
 
 export default withRouter(connect(mapStateToProps, { openUserSidebar, setFullUser })(UserChat));
