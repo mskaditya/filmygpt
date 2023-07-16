@@ -23,6 +23,8 @@ import avatar1 from "../../../assets/images/users/avatar-1.jpg";
 
 //i18n
 import { useTranslation } from 'react-i18next';
+//uuid import
+import { v4 as uuid } from 'uuid';
 
 function UserChat(props) {
 
@@ -83,7 +85,7 @@ function UserChat(props) {
 
         userData.messages = [messageObj];
         userData.isTyping = false;
-        userData.ConversationId = Math.floor(20 + Math.random() * (1000000 - 1));
+        userData.ConversationId = uuid();
         userData.InitialConversationTimeStamp = new Date();
         userData.SessionId = props.sessionId
         props.setFullUser(userData);

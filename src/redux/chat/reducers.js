@@ -2,7 +2,7 @@ import {
     CHAT_USER, ACTIVE_USER, FULL_USER, ADD_LOGGED_USER, CREATE_GROUP, FULL_USER_SUCCESS, API_FAILED
 } from './constants';
 
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 //Import Images
 import avatar1 from "../../assets/images/users/avatar-1.jpg";
@@ -25,7 +25,7 @@ import amitabh_bachchan from "../../assets/images/users/amitabh.png";
 
 const INIT_STATE = {
     active_user: 0,
-    sessionId: uuidv4(),
+    sessionId: uuid(),
     userchat_inputplaceholder : [
         {
             id: "78a2620b-b9c3-4a27-b729-4cb0fbf40fe9", placeholder: "Kuch meetha tho likh do"
