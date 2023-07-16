@@ -117,10 +117,10 @@ class Chats extends Component {
         return (
             <React.Fragment>
                 <div>
-                    <div className="px-4 pt-4">
+                    <div className="px-3 pt-3">
                         <div className='d-flex'>
                     <div className = 'p-2'><img className="rounded-circle avatar-md" src={avatar2}/></div>
-                    <div className = 'justify-content-center'><h4 className="mb-4">FilmiGPT</h4></div>
+                    <div className = 'pt-4 justify-content-center'><h4 className="mt-1">FilmiGPT</h4></div>
                     </div>
                         <div className="search-box chat-search-box">
                             <InputGroup className="mb-3 rounded-3">
