@@ -28,7 +28,7 @@ import { v4 as uuid } from 'uuid';
 
 function UserChat(props) {
 
-    const chatContainerRef = useRef();
+    const ref = useRef();
     const [modal, setModal] = useState(false);
 
     /* intilize t variable for multi language implementation */
@@ -182,13 +182,10 @@ function UserChat(props) {
     }
 
     function scrolltoBottom(type) {
-        if (chatContainerRef.current) {
-            const { scrollHeight, clientHeight } = chatContainerRef.current;
-            chatContainerRef.current.scrollTop = scrollHeight - clientHeight;
-          }
-        // if (chatContainerRef.current.el) {
-        //     chatContainerRef.current.getScrollElement().scrollTop = chatContainerRef.current.getScrollElement().scrollHeight;
-        // }
+        ref.current.recalculate();
+        if (ref.current.el) {
+            ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight ;
+        }
     }
 
 
@@ -215,11 +212,11 @@ function UserChat(props) {
                         <UserHead />
 
                         <SimpleBar
-                            style={{ maxHeight: "100%" }}
-                            ref={chatContainerRef}
+                            // style={{ maxHeight: "100%" }}
+                            ref={ref} 
                             className="chat-conversation p-3 p-lg-4"
                             id="messages">
-                            <ul className="list-unstyled mb-0">
+                            <ul  className="list-unstyled mb-0">
 
 
                                 {
