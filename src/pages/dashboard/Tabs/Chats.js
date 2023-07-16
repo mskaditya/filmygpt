@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Input, InputGroup } from "reactstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-
+import avatar2 from "../../../assets/images/users/avatar-2.jpg";
 //simplebar
 import SimpleBar from "simplebar-react";
 
@@ -118,13 +118,16 @@ class Chats extends Component {
             <React.Fragment>
                 <div>
                     <div className="px-4 pt-4">
-                        <h4 className="mb-4">Chats</h4>
+                        <div className='d-flex'>
+                    <div className = 'p-2'><img className="rounded-circle avatar-md" src={avatar2}/></div>
+                    <div className = 'justify-content-center'><h4 className="mb-4">FilmiGPT</h4></div>
+                    </div>
                         <div className="search-box chat-search-box">
                             <InputGroup className="mb-3 rounded-3">
                                 <span className="input-group-text text-muted bg-light pe-1 ps-3" id="basic-addon1">
                                     <i className="ri-search-line search-icon font-size-18"></i>
                                 </span>
-                                <Input type="text" value={this.state.searchChat} onChange={(e) => this.handleChange(e)} className="form-control bg-light" placeholder="Bolo kis se baath karna he" />
+                                <Input type="text" value={this.state.searchChat} onChange={(e) => this.handleChange(e)} className="form-control bg-light" placeholder="Batao kis se baat karoge?" />
                             </InputGroup>
                         </div>
                         {/* Search Box */}

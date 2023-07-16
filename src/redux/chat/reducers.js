@@ -84,7 +84,7 @@ const INIT_STATE = {
         {
             id: "247868ec-46e2-4339-a173-10ad682527ef", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Amitabh Bachchan", botId: "amitabh_bachchan", profilePicture: amitabh_bachchan, status: "online", unRead: 0, isGroup: true,
             initialconv: true, 
-            introText: "",
+            introText: "Kheloge KBC? Hot seat pe baithne keliye tayyar ho?",
             messages: []
         },
         {
