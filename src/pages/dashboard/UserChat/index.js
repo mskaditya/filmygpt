@@ -170,6 +170,7 @@ function UserChat(props) {
 
         copyallUsers.messages = [...chatMessages, messageObj, assistantMessageObj];
         copyallUsers.isTyping = false;
+        copyallUsers.SessionId = props.sessionId;
         props.setFullUser(copyallUsers);
 
         // chatContainerRef.current.recalculate();
