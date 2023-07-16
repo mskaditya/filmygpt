@@ -63,18 +63,18 @@ const INIT_STATE = {
             introText: "Is Munni ko badnaam honahi pada aap se baath karnekeliye!",
             messages: []
         },
-        {
-            id: "78a2620b-b9c3-4a27-b729-4cb0fbf40fe9", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Chulbuli Sharmili", botId: "chulbuli_sharmili", profilePicture: chulbuli_sharmili, status: "online", unRead: 0, roomType: "contact", isGroup: false,
-            initialconv: true,
-            introText: "",
-            messages: []
-        },
-        {
-            id: "9010bf43-c253-4a59-9e60-af89f7f81255", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Pagla Deewana", botId: "pagla_deewana", profilePicture: pagla_deewana, status: "online", unRead: 0, roomType: "contact", isGroup: false,
-            initialconv: true,
-            introText: "",
-            messages: []
-        },
+        // {
+        //     id: "78a2620b-b9c3-4a27-b729-4cb0fbf40fe9", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Chulbuli Sharmili", botId: "chulbuli_sharmili", profilePicture: chulbuli_sharmili, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+        //     initialconv: true,
+        //     introText: "",
+        //     messages: []
+        // },
+        // {
+        //     id: "9010bf43-c253-4a59-9e60-af89f7f81255", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Pagla Deewana", botId: "pagla_deewana", profilePicture: pagla_deewana, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+        //     initialconv: true,
+        //     introText: "",
+        //     messages: []
+        // },
         {
             id: "5de61b88-8164-43a1-9cf8-6527a1459b56", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Shahrukh Khan", botId: "sharukh_khan", profilePicture: avatar9, status: "online", unRead: 0,roomType: "contact", isGroup: false,
             initialconv: true,
