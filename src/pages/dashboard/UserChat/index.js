@@ -182,10 +182,30 @@ function UserChat(props) {
     }
 
     function scrolltoBottom(type) {
-        ref.current.recalculate();
-        if (ref.current.el) {
-            ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight ;
-        }
+
+        const videoElement = document.getElementById('messages').scrollIntoView();;
+
+        // const y = videoElement.getBoundingClientRect().top + window.scrollY;
+        // window.scroll({
+        //   top: y,
+        //   behavior: 'smooth'
+        // });
+        // videoElement.SimpleBar.getScrollElement().scrollTop = 100;
+
+        // if (ref !== undefined) {
+        //     setTimeout(() => {
+        //       ref.SimpleBar.getScrollElement().scrollTop = ref.SimpleBar.getScrollElement().scrollHeight;
+        //     }, 500);
+        //   }
+        // if (ref.current) {
+        //     const { scrollHeight, clientHeight } = ref.current;
+        //     console.log(clientHeight)
+        //     ref.current.scrollTop = scrollHeight - clientHeight;
+        //   }
+        // ref.current.recalculate();
+        // if (ref.current.el) {
+        //     ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight ;
+        // }
     }
 
 
