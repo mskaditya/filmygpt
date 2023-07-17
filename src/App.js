@@ -38,13 +38,14 @@ function App() {
 
 useEffect(() => {
   layoutMode && localStorage.setItem("layoutMode",layoutMode);
+}, [layoutMode])
 
+useEffect(() => {
     // Simulate a delay to show the splash screen for a specific duration
     setTimeout(() => {
       setShowSplash(false);
     }, 5000); // Replace with your desired duration in milliseconds
-
-}, [layoutMode])
+})
 
   return (
     <div>
