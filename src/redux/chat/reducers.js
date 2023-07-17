@@ -68,7 +68,7 @@ const INIT_STATE = {
         {
             id: "68171000-07e4-425b-a016-746cee59fce2", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Pehchan Kaun", botId: "pehchan_kaun", profilePicture: pehchan_kaun, status: "online", unRead: 0, roomType: "contact", isGroup: false,
             initialconv: true,
-            introText: "Aap jaane ke aap filmon ke baare mein kitna jaanta ho!",
+            introText: "Aaiye dekein ke aap filmon ke baare mein kitna jaante ho!",
             messages: []
         },
         {
