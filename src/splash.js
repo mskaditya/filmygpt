@@ -1,26 +1,11 @@
-import React, { useEffect } from 'react';
-import splashVideo from './assets/video/splashscreen.mp4'; // Replace with the path to your video file
+import React from 'react';
+import splashgif from "./assets/images/users/filmigpt_logo-removebg-preview.gif"
+
 
 const SplashScreen = () => {
-  useEffect(() => {
-    // After the video ends, remove the splash screen
-    const videoElement = document.getElementById('splash-video');
-    videoElement.addEventListener('ended', handleVideoEnd);
-
-    return () => {
-      videoElement.removeEventListener('ended', handleVideoEnd);
-    };
-  }, []);
-
-  const handleVideoEnd = () => {
-    // Code to remove the splash screen (e.g., update state, navigate to the next page, etc.)
-  };
-
   return (
-    <div className="splash-screen">
-      <video id="splash-video" autoPlay muted width="1800" height="1400">
-        <source src={splashVideo} type="video/mp4" />
-      </video>
+    <div className="d-flex align-items-center justify-content-center">
+        <img src={splashgif} alt='loading...' width="800"/>
     </div>
   );
 };

@@ -44,7 +44,7 @@ useEffect(() => {
     // Simulate a delay to show the splash screen for a specific duration
     setTimeout(() => {
       setShowSplash(false);
-    }, 5000); // Replace with your desired duration in milliseconds
+    }, 3200); // Replace with your desired duration in milliseconds
 })
 
   return (
