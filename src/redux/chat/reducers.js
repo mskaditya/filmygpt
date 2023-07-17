@@ -78,7 +78,7 @@ const INIT_STATE = {
             messages: []
         },
         {
-            id: "dd9c0554-80af-475c-b531-621093ccc74b", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Love Gurus", botId: "love_gurus", profilePicture: badnam_munni, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            id: "dd9c0554-80af-475c-b531-621093ccc74b", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Love Gurus", botId: "love_gurus", profilePicture: love_gurus, status: "online", unRead: 0, roomType: "contact", isGroup: false,
             initialconv: true,
             introText: "Aapko pyaar mein laana hai mithas, ya fir mitani hai bewah ki kathas, toh aaye karein hum love gurus ke pass!",
             messages: []
