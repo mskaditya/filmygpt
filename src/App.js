@@ -49,7 +49,7 @@ useEffect(() => {
 
   return (
     <div>
-      {showSplash ? <SplashScreen /> : <Routes />}
+      {showSplash ? <SplashScreen /> : <SplashScreen />}
     </div>
     );
 };
