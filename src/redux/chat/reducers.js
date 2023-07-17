@@ -21,7 +21,9 @@ import badnam_munni from "../../assets/images/users/5.png";
 import chulbuli_sharmili from "../../assets/images/users/8.png";
 import pagla_deewana from "../../assets/images/users/7.png";
 import ghazal_e_dil from "../../assets/images/users/10.png";
-import amitabh_bachchan from "../../assets/images/users/amitabh.png";
+import amitabh_bachchan from "../../assets/images/users/kbc.png";
+import pehchan_kaun from "../../assets/images/users/pehchan_kaun.png";
+import love_gurus from "../../assets/images/users/love_gurus.png";
 
 const INIT_STATE = {
     active_user: 0,
@@ -46,7 +48,7 @@ const INIT_STATE = {
             id: "78ccca4d-4f56-423c-b8d4-244d6a391fc4", placeholder: "Bolo our Rajinikanth ka dil jeetho"
         },
         {
-            id: "33941093-6455-44e5-8bd6-5d73c10a96f7", placeholder: "Tumhar message ko border tho paar karao!"
+            id: "33941093-6455-44e5-8bd6-5d73c10a96f7", placeholder: "Tumhare message ko border to paar karao!"
         }
     ],
     users: [
@@ -61,6 +63,12 @@ const INIT_STATE = {
             id: "466c629b-9c71-45d0-9d60-4ea46ea0b0af", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Badnam Munni", botId: "badnam_munni", profilePicture: badnam_munni, status: "online", unRead: 0, roomType: "contact", isGroup: false,
             initialconv: true,
             introText: "Is Munni ko badnaam honahi pada aap se baath karnekeliye!",
+            messages: []
+        },
+        {
+            id: "68171000-07e4-425b-a016-746cee59fce2", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Pehchan Kaun", botId: "pehchan_kaun", profilePicture: badnam_munni, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            initialconv: true,
+            introText: "Aap jaane ke aap filmon ke baare mein kitna jaanta ho!",
             messages: []
         },
         // {
@@ -78,13 +86,13 @@ const INIT_STATE = {
         {
             id: "5de61b88-8164-43a1-9cf8-6527a1459b56", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Shahrukh Khan", botId: "sharukh_khan", profilePicture: avatar9, status: "online", unRead: 0,roomType: "contact", isGroup: false,
             initialconv: true,
-            introText: "Hum baath karenge tho Dil Paagal hoga? Ya don pakda jaayega?",
+            introText: "Hum baat karenge to Dil Paagal hoga? Ya don pakda jaayega?",
             messages: []
         },
         {
-            id: "247868ec-46e2-4339-a173-10ad682527ef", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Amitabh Bachchan", botId: "amitabh_bachchan", profilePicture: amitabh_bachchan, status: "online", unRead: 0, isGroup: true,
+            id: "247868ec-46e2-4339-a173-10ad682527ef", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "KBC with Amitabh Bachchan", botId: "amitabh_bachchan", profilePicture: amitabh_bachchan, status: "online", unRead: 0, isGroup: true,
             initialconv: true, 
-            introText: "Kheloge KBC? Hot seat pe baithne keliye tayyar ho?",
+            introText: "Kheloge KBC? Hot seat pe baithne ke liye tayyar ho?",
             messages: []
         },
         {
@@ -96,7 +104,13 @@ const INIT_STATE = {
         {
             id: "33941093-6455-44e5-8bd6-5d73c10a96f7", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Sunny Doel", botId: "sunny_doel", profilePicture: avatar11, status: "online", unRead: 0, roomType: "contact", isGroup: false,isTyping: false,
             initialconv: true, 
-            introText: "Mein jaantha tha sab ko mere se chat kar na he! Hum he utni range ke Sikandar!",
+            introText: "Mein jaanta tha sab ko mere se chat kar na he! Hum he utni range ke Sikandar!",
+            messages: []
+        },
+        {
+            id: "dd9c0554-80af-475c-b531-621093ccc74b", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Love Gurus", botId: "pehchan_kaun", profilePicture: badnam_munni, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            initialconv: true,
+            introText: "Aapko pyaar mein laana hai mithas, ya fir mitani hai bewah ki kathas, toh aaye karein hum love gurus ke pass!",
             messages: []
         },
         {
