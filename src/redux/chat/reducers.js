@@ -21,7 +21,7 @@ import badnam_munni from "../../assets/images/users/5.png";
 import chulbuli_sharmili from "../../assets/images/users/8.png";
 import pagla_deewana from "../../assets/images/users/7.png";
 import ghazal_e_dil from "../../assets/images/users/10.png";
-import amitabh_bachchan from "../../assets/images/users/kbc.png";
+import amitabh_bachchan from "../../assets/images/users/kbc.jpg";
 import pehchan_kaun from "../../assets/images/users/pehchan_kaun.png";
 import love_gurus from "../../assets/images/users/love_gurus.png";
 
