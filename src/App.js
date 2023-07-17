@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Routes from './routes';
+import SplashScreen from './splash'
 
 //Import Scss
 import "./assets/scss/themes.scss";
@@ -29,15 +30,27 @@ fakeBackend();
 // initFirebaseBackend(firebaseConfig);
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
   const { layoutMode } = useSelector(state => ({
     layoutMode: state.Layout.layoutMode,
   }));
 
 useEffect(() => {
   layoutMode && localStorage.setItem("layoutMode",layoutMode);
+
+    // Simulate a delay to show the splash screen for a specific duration
+    setTimeout(() => {
+      setShowSplash(false);
+    }, 5000); // Replace with your desired duration in milliseconds
+
 }, [layoutMode])
 
-  return <Routes />;
+  return (
+    <div>
+      {showSplash ? <SplashScreen /> : <Routes />}
+    </div>
+    );
 };
 
 export default App;
