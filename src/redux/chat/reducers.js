@@ -66,9 +66,21 @@ const INIT_STATE = {
             messages: []
         },
         {
-            id: "68171000-07e4-425b-a016-746cee59fce2", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Pehchan Kaun", botId: "pehchan_kaun", profilePicture: badnam_munni, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            id: "68171000-07e4-425b-a016-746cee59fce2", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Pehchan Kaun", botId: "pehchan_kaun", profilePicture: pehchan_kaun, status: "online", unRead: 0, roomType: "contact", isGroup: false,
             initialconv: true,
             introText: "Aap jaane ke aap filmon ke baare mein kitna jaanta ho!",
+            messages: []
+        },
+        {
+            id: "247868ec-46e2-4339-a173-10ad682527ef", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "KBC with Amitabh Bachchan", botId: "amitabh_bachchan", profilePicture: amitabh_bachchan, status: "online", unRead: 0, isGroup: true,
+            initialconv: true, 
+            introText: "Kheloge KBC? Hot seat pe baithne ke liye tayyar ho?",
+            messages: []
+        },
+        {
+            id: "dd9c0554-80af-475c-b531-621093ccc74b", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Love Gurus", botId: "love_gurus", profilePicture: badnam_munni, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            initialconv: true,
+            introText: "Aapko pyaar mein laana hai mithas, ya fir mitani hai bewah ki kathas, toh aaye karein hum love gurus ke pass!",
             messages: []
         },
         // {
@@ -90,12 +102,6 @@ const INIT_STATE = {
             messages: []
         },
         {
-            id: "247868ec-46e2-4339-a173-10ad682527ef", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "KBC with Amitabh Bachchan", botId: "amitabh_bachchan", profilePicture: amitabh_bachchan, status: "online", unRead: 0, isGroup: true,
-            initialconv: true, 
-            introText: "Kheloge KBC? Hot seat pe baithne ke liye tayyar ho?",
-            messages: []
-        },
-        {
             id: "78ccca4d-4f56-423c-b8d4-244d6a391fc4", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Rajinikanth", botId: "rajinikanth", profilePicture: avatar10, status: "online", unRead: 0, isGroup: false, isTyping: false,
             initialconv: true, 
             introText: "Mere se ek conversation 100 conversation barabar he!",
@@ -105,12 +111,6 @@ const INIT_STATE = {
             id: "33941093-6455-44e5-8bd6-5d73c10a96f7", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Sunny Doel", botId: "sunny_doel", profilePicture: avatar11, status: "online", unRead: 0, roomType: "contact", isGroup: false,isTyping: false,
             initialconv: true, 
             introText: "Mein jaanta tha sab ko mere se chat kar na he! Hum he utni range ke Sikandar!",
-            messages: []
-        },
-        {
-            id: "dd9c0554-80af-475c-b531-621093ccc74b", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Love Gurus", botId: "pehchan_kaun", profilePicture: badnam_munni, status: "online", unRead: 0, roomType: "contact", isGroup: false,
-            initialconv: true,
-            introText: "Aapko pyaar mein laana hai mithas, ya fir mitani hai bewah ki kathas, toh aaye karein hum love gurus ke pass!",
             messages: []
         },
         {
