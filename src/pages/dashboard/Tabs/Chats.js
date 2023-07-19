@@ -119,9 +119,16 @@ class Chats extends Component {
                 <div>
                     <div className="px-3 pt-3">
                         <div className='d-flex'>
-                    <div className = 'p-2'><img className="rounded-circle avatar-md" src={avatar2}/></div>
-                    <div className = 'pt-4 justify-content-center'><h4 className="mt-1">FilmiGPT</h4></div>
-                    </div>
+                            <div className='p-2'><img className="rounded-circle avatar-md" src={avatar2} /></div>
+                            <div className='pt-4 justify-content-center flex-grow-1 overflow-hidden'><h4 className="font-size-20 mb-0 text-truncate">FilmiGPT</h4>
+                                <div className='ctext-wrap'>
+                                    <h7 className="font-size-14 mb-0 text-overflow">
+                                        AI ke saath masti bollywood style mein!
+                                    </h7>
+                                </div>
+
+                            </div>
+                        </div>
                         <div className="search-box chat-search-box">
                             <InputGroup className="mb-3 rounded-3">
                                 <span className="input-group-text text-muted bg-light pe-1 ps-3" id="basic-addon1">
@@ -164,7 +171,7 @@ class Chats extends Component {
                                                                 <img src={chat.profilePicture} className="rounded-circle avatar-sm" alt="filmigpt" />
                                                                 {
                                                                     chat.status && <span className="user-status"></span>
-                                                                                                                                   
+
                                                                 }
                                                             </div>
                                                     }
@@ -190,7 +197,7 @@ class Chats extends Component {
                                                                             chat.messages && (chat.messages.length > 0 && chat.messages[(chat.messages).length - 1].isFileMessage === true) ? <i className="ri-file-text-fill align-middle me-1"></i> : null
                                                                         }
                                                                         {
-                                                                        chat.messages && chat.messages.length > 0 ? chat.messages[(chat.messages).length - 1].content : null
+                                                                            chat.messages && chat.messages.length > 0 ? chat.messages[(chat.messages).length - 1].content : null
                                                                         }
                                                                     </>
                                                             }
@@ -199,7 +206,7 @@ class Chats extends Component {
 
                                                         </p>
                                                     </div>
-                                                    <div className="font-size-11">{chat.messages && chat.messages.length > 0 ? new Date(chat.messages[(chat.messages).length - 1].time).toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'}).toUpperCase() : null}</div>
+                                                    <div className="font-size-11">{chat.messages && chat.messages.length > 0 ? new Date(chat.messages[(chat.messages).length - 1].time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12' }).toUpperCase() : null}</div>
                                                     {chat.unRead === 0 ? null :
                                                         <div className="unread-message" id={"unRead" + chat.id}>
                                                             <span className="badge badge-soft-danger rounded-pill">{chat.messages && chat.messages.length > 0 ? chat.unRead >= 20 ? chat.unRead + "+" : chat.unRead : ""}</span>

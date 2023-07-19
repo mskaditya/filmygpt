@@ -306,3 +306,15 @@
 	}
 }
 
+.splash-screen-img {
+        width: 500px;
+        @media (max-width: 900px) {
+            min-width: 330px;
+            max-width: 330px;
+        }
+  }
+
+  .splash-screen { 
+    height: 100vh;
+  }
+
