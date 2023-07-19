@@ -57,12 +57,6 @@ function UserChat(props) {
         else {
             setchatMessages(props.recentChatList[props.active_user].messages);
         }
-
-        // chatContainerRef.current.recalculate();
-        // if (chatContainerRef.current.el) {
-        //     chatContainerRef.current.getScrollElement().scrollTop = chatContainerRef.current.getScrollElement().scrollHeight;
-        // }
-
         scrolltoBottom();
     }, [props.active_user, props.recentChatList, props.user]);
 
@@ -167,45 +161,22 @@ function UserChat(props) {
         let copyallUsers = props.recentChatList[props.active_user];
         
 
-
         copyallUsers.messages = [...chatMessages, messageObj, assistantMessageObj];
         copyallUsers.isTyping = false;
         copyallUsers.SessionId = props.sessionId;
         props.setFullUser(copyallUsers);
 
-        // chatContainerRef.current.recalculate();
-        // if (chatContainerRef.current.el) {
-        //     chatContainerRef.current.getScrollElement().scrollTop = chatContainerRef.current.getScrollElement().scrollHeight;
-        // }
 
-        scrolltoBottom("new message");
+        scrolltoBottom();
     }
 
-    function scrolltoBottom(type) {
-
-        const videoElement = document.getElementById('messages').scrollIntoView();;
-
-        // const y = videoElement.getBoundingClientRect().top + window.scrollY;
-        // window.scroll({
-        //   top: y,
-        //   behavior: 'smooth'
-        // });
-        // videoElement.SimpleBar.getScrollElement().scrollTop = 100;
-
-        // if (ref !== undefined) {
-        //     setTimeout(() => {
-        //       ref.SimpleBar.getScrollElement().scrollTop = ref.SimpleBar.getScrollElement().scrollHeight;
-        //     }, 500);
-        //   }
-        // if (ref.current) {
-        //     const { scrollHeight, clientHeight } = ref.current;
-        //     console.log(clientHeight)
-        //     ref.current.scrollTop = scrollHeight - clientHeight;
-        //   }
-        // ref.current.recalculate();
-        // if (ref.current.el) {
-        //     ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight ;
-        // }
+    function scrolltoBottom() {
+        ref.current.recalculate();
+        if (ref.current.el) {
+            setTimeout(() => {
+                ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight;
+              }, 300);
+        }
     }
 
 
