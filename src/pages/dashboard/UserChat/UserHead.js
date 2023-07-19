@@ -53,7 +53,7 @@ function UserHead(props) {
                             {
                                 props.users[props.active_user].profilePicture !== "Null" ?
                                     <div className="me-3 ms-0">
-                                        <img src={props.users[props.active_user].profilePicture} className="rounded-circle avatar-md" alt="filmigpt" />
+                                        <img src={props.users[props.active_user].profilePicture} className="rounded-circle avatar-xs" alt="filmigpt" />
                                     </div>
                                     : <div className="chat-user-img align-self-center me-3">
                                         <div className="avatar-xs">
@@ -99,9 +99,9 @@ function UserHead(props) {
 
                                 </h5>
                                 <div className='ctext-wrap'>
-                                    <h7 className="font-size-14 mb-0 text-overflow">
+                                    <div className="font-size-14 mb-0 text-overflow">
                                         {props.users[props.active_user].introText}
-                                    </h7>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -42,6 +42,8 @@ function UserChat(props) {
 
 
     useEffect(() => {
+        ref.current.recalculate();
+
         if (props.user != null) {
             props.recentChatList.forEach(user => {
                 if (user.id === props.user.id) {
@@ -57,6 +59,8 @@ function UserChat(props) {
         else {
             setchatMessages(props.recentChatList[props.active_user].messages);
         }
+        ref.current.recalculate();
+
         scrolltoBottom();
     }, [props.active_user, props.recentChatList, props.user]);
 
@@ -165,6 +169,7 @@ function UserChat(props) {
         copyallUsers.isTyping = false;
         copyallUsers.SessionId = props.sessionId;
         props.setFullUser(copyallUsers);
+        ref.current.recalculate();
 
 
         scrolltoBottom();
@@ -175,7 +180,7 @@ function UserChat(props) {
         if (ref.current.el) {
             setTimeout(() => {
                 ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight;
-              }, 300);
+              }, 100);
         }
     }
 

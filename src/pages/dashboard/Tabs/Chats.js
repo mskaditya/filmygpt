@@ -122,9 +122,9 @@ class Chats extends Component {
                             <div className='p-2'><img className="rounded-circle avatar-md" src={avatar2} /></div>
                             <div className='pt-4 justify-content-center flex-grow-1 overflow-hidden'><h4 className="font-size-20 mb-0 text-truncate">FilmiGPT</h4>
                                 <div className='ctext-wrap'>
-                                    <h7 className="font-size-14 mb-0 text-overflow">
+                                    <div className="font-size-14 mb-0 text-overflow">
                                         AI ke saath masti bollywood style mein!
-                                    </h7>
+                                    </div>
                                 </div>
 
                             </div>
