@@ -134,7 +134,7 @@ class Chats extends Component {
                                 <span className="input-group-text text-muted bg-light pe-1 ps-3" id="basic-addon1">
                                     <i className="ri-search-line search-icon font-size-18"></i>
                                 </span>
-                                <Input type="text" value={this.state.searchChat} onChange={(e) => this.handleChange(e)} className="form-control bg-light" placeholder="Batao kis se baat karoge?" />
+                                <Input type="text" value={this.state.searchChat} onChange={(e) => this.handleChange(e)} className="form-control bg-light" placeholder="Batao kis se chat karoge?" />
                             </InputGroup>
                         </div>
                         {/* Search Box */}
