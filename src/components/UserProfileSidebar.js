@@ -6,7 +6,7 @@ import { Button, Card, Badge } from "reactstrap";
 import SimpleBar from "simplebar-react";
 
 //components
-import AttachedFiles from "./AttachedFiles";
+// import AttachedFiles from "./AttachedFiles";
 import CustomCollapse from "./CustomCollapse";
 
 //actions
@@ -119,7 +119,7 @@ function UserProfileSidebar(props) {
                 {/* Start user-profile-desc */}
                 <SimpleBar style={{ maxHeight: "100%" }} className="p-4 user-profile-desc">
                     <div className="text-muted">
-                        <p className="mb-4">"{t('If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual.')}"</p>
+                        <p className="mb-4">"{t(props.users[props.active_user].introText)}"</p>
                     </div>
 
                     <div id="profile-user-accordion" className="custom-accordion">
@@ -138,37 +138,37 @@ function UserProfileSidebar(props) {
                                     <h5 className="font-size-14">{props.activeUser.name}</h5>
                                 </div>
 
-                                <div className="mt-4">
+                                {/* <div className="mt-4">
                                     <p className="text-muted mb-1">{t('Email')}</p>
                                     <h5 className="font-size-14">{props.activeUser.email}</h5>
-                                </div>
+                                </div> */}
 
                                 <div className="mt-4">
                                     <p className="text-muted mb-1">{t('Time')}</p>
-                                    <h5 className="font-size-14">11:40 AM</h5>
+                                    <h5 className="font-size-14">{new Date().toLocaleTimeString([], {hour:'2-digit', minute: '2-digit', hour12: true, hourCycle: 'h12'})}</h5>
                                 </div>
 
-                                <div className="mt-4">
+                                {/* <div className="mt-4">
                                     <p className="text-muted mb-1">{t('Location')}</p>
                                     <h5 className="font-size-14 mb-0">California, USA</h5>
-                                </div>
+                                </div> */}
 
                             </CustomCollapse>
                         </Card>
                         {/* End About card */}
 
-                        <Card className="mb-1 shadow-none border">
-                            {/* import collaps */}
+                        {/* <Card className="mb-1 shadow-none border">
+                            
                             <CustomCollapse
                                 title="Attached Files"
                                 iconClass="ri-attachment-line"
                                 isOpen={isOpen2}
                                 toggleCollapse={toggleCollapse2}
                             >
-                                {/* attached files */}
+                                
                                 <AttachedFiles files={files} />
                             </CustomCollapse>
-                        </Card>
+                        </Card> */}
 
                         {
                             props.activeUser.isGroup === true &&

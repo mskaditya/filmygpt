@@ -49,7 +49,7 @@
   box-sizing: border-box !important;
   position: relative;
   display: block;
-  height: 100%; /* Required for horizontal native scrollbar to not appear if parent is taller than natural height */
+  height: 89% !important; /* Required for horizontal native scrollbar to not appear if parent is taller than natural height */
   width: auto;
   visibility: visible;
   overflow: auto; /* Scroll on this element otherwise element can't have a padding applied properly */
