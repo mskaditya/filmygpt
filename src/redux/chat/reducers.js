@@ -66,12 +66,12 @@ const INIT_STATE = {
             introText: "Is Munni ko badnaam hona hi pada aap se baat karne keliye!",
             messages: []
         },
-        {
-            id: "68171000-07e4-425b-a016-746cee59fce2", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Pehchan Kaun", botId: "pehchan_kaun", profilePicture: pehchan_kaun, status: "online", unRead: 0, roomType: "contact", isGroup: false,
-            initialconv: true,
-            introText: "Aaiye dekein ke aap filmon ke baare mein kitna jaante ho!",
-            messages: []
-        },
+        // {
+        //     id: "68171000-07e4-425b-a016-746cee59fce2", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Pehchan Kaun", botId: "pehchan_kaun", profilePicture: pehchan_kaun, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+        //     initialconv: true,
+        //     introText: "Aaiye dekein ke aap filmon ke baare mein kitna jaante ho!",
+        //     messages: []
+        // },
         {
             id: "247868ec-46e2-4339-a173-10ad682527ef", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "KBC with Amitabh Bachchan", botId: "amitabh_bachchan", profilePicture: amitabh_bachchan, status: "online", unRead: 0, isGroup: true,
             initialconv: true, 
@@ -79,9 +79,9 @@ const INIT_STATE = {
             messages: []
         },
         {
-            id: "dd9c0554-80af-475c-b531-621093ccc74b", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Love Guru", botId: "love_gurus", profilePicture: love_gurus, status: "online", unRead: 0, roomType: "contact", isGroup: false,
-            initialconv: true,
-            introText: "Aapko pyaar mein laana hai mithas, ya fir mitani hai bewah ki kathas, toh aaye karein hum love guru ke pass!",
+            id: "e581afee-de94-4100-b2e0-fca62523917e", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Alia Bhatt", botId: "alia_bhatt", profilePicture: alia_bhatt, status: "online", unRead: 0, roomType: "contact", isGroup: false,isTyping: false,
+            initialconv: true, 
+            introText: "Main tenu samjhawan ki, Tera bina lagda ji!",
             messages: []
         },
         // {
@@ -115,15 +115,15 @@ const INIT_STATE = {
             messages: []
         },
         {
-            id: "e581afee-de94-4100-b2e0-fca62523917e", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Alia Bhatt", botId: "alia_bhatt", profilePicture: avatar11, status: "online", unRead: 0, roomType: "contact", isGroup: false,isTyping: false,
-            initialconv: true, 
-            introText: "Main tenu samjhawan ki, Tera bina lagda ji!",
-            messages: []
-        },
-        {
             id: "2d936cce-8cc5-46e1-8159-e6ce8d922568", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Ghazal-e-Dil", botId: "ghazal-e-dil", profilePicture: ghazal_e_dil, status: "online", unRead: 0, isGroup: false,
             initialconv: true, 
             introText: "Saath mein Shayari Likhen? Ud chalein is rangon ki duniya mein?",
+            messages: []
+        },
+        {
+            id: "dd9c0554-80af-475c-b531-621093ccc74b", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Love Guru", botId: "love_gurus", profilePicture: love_gurus, status: "online", unRead: 0, roomType: "contact", isGroup: false,
+            initialconv: true,
+            introText: "Aapko pyaar mein laana hai mithas, ya fir mitani hai bewah ki kathas, toh aaye karein hum love guru ke pass!",
             messages: []
         },
     ],
