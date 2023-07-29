@@ -24,7 +24,7 @@ import ghazal_e_dil from "../../assets/images/users/10.png";
 import amitabh_bachchan from "../../assets/images/users/kbc.jpg";
 import pehchan_kaun from "../../assets/images/users/pehchan_kaun.png";
 import love_gurus from "../../assets/images/users/love_gurus.png";
-import amitabh_bachchan from "../../assets/images/users/jpeg.jpg";
+import alia_bhatt from "../../assets/images/users/alia_bhatt.jpeg";
 
 const INIT_STATE = {
     active_user: 0,
@@ -115,7 +115,7 @@ const INIT_STATE = {
             messages: []
         },
         {
-            id: "e581afee-de94-4100-b2e0-fca62523917e", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Alia Bhatt", botId: "alia_bhattt", profilePicture: avatar11, status: "online", unRead: 0, roomType: "contact", isGroup: false,isTyping: false,
+            id: "e581afee-de94-4100-b2e0-fca62523917e", ConversationId:"", SessionId:"", InitialConversationTimeStamp:"", name: "Alia Bhatt", botId: "alia_bhatt", profilePicture: avatar11, status: "online", unRead: 0, roomType: "contact", isGroup: false,isTyping: false,
             initialconv: true, 
             introText: "Main tenu samjhawan ki, Tera bina lagda ji!",
             messages: []
