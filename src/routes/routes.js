@@ -17,6 +17,7 @@ const authProtectedRoutes = [
   { path: "/pages-starter", component: <StarterPage /> },
   { path: "*", component: <Navigate to="/" /> },
   { path: "/", component: <Dashboard /> },
+  { path: "/sessionId/:sessionId/conversationId/:conversationId", component: <Dashboard /> },
   {
     path: "/",
     exact: true,

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { DropdownMenu, DropdownItem, DropdownToggle, UncontrolledDropdown, Modal, ModalHeader, ModalBody, CardBody, Button, ModalFooter } from "reactstrap";
 import { connect } from "react-redux";
+import { useParams } from 'react-router-dom';
+
 
 import SimpleBar from "simplebar-react";
 
@@ -28,6 +30,8 @@ import { v4 as uuid } from 'uuid';
 
 function UserChat(props) {
 
+    const { sessionId, conversationId } = useParams();
+
     const ref = useRef();
     const [modal, setModal] = useState(false);
 
@@ -39,6 +43,7 @@ function UserChat(props) {
     //const [allUsers] = useState(props.recentChatList);
     const [chatMessages, setchatMessages] = useState(props.recentChatList[props.active_user].messages);
     const [initializedUsers, setInitializedUsers] = useState([]);
+    const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
 
     useEffect(() => {
@@ -64,6 +69,15 @@ function UserChat(props) {
         scrolltoBottom();
     }, [props.active_user, props.recentChatList, props.user]);
 
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          setCurrentMessageIndex((prevIndex) => prevIndex + 1);
+        }, 3000);
+    
+        return () => clearTimeout(timer);
+      }, [currentMessageIndex]);
+
     useEffect(() => {
         if (initializedUsers.find(x => x.id === props.recentChatList[props.active_user].id) == null) {
             getInitialIceBreaker();
@@ -83,10 +97,16 @@ function UserChat(props) {
 
         userData.messages = [messageObj];
         userData.isTyping = false;
-        userData.ConversationId = uuid();
+        userData.ConversationId = conversationId ?  conversationId : uuid();
         userData.InitialConversationTimeStamp = new Date();
-        userData.SessionId = props.sessionId
-        props.setFullUser(userData);
+        userData.SessionId = sessionId ? sessionId: props.sessionId
+
+        let IsMessagesRetrieve = false
+        if (sessionId && conversationId) {
+            IsMessagesRetrieve = true;
+        }
+        console.log(userData);
+        props.setFullUser(userData, IsMessagesRetrieve);
         scrolltoBottom("initial message");
     }
 
@@ -168,7 +188,7 @@ function UserChat(props) {
         copyallUsers.messages = [...chatMessages, messageObj, assistantMessageObj];
         copyallUsers.isTyping = false;
         copyallUsers.SessionId = props.sessionId;
-        props.setFullUser(copyallUsers);
+        props.setFullUser(copyallUsers, false);
         ref.current.recalculate();
 
 
@@ -216,7 +236,7 @@ function UserChat(props) {
 
 
                                 {
-                                    chatMessages.map((chat, key) =>
+                                    chatMessages.slice(0, currentMessageIndex + 1).map((chat, key) =>
                                         chat.isToday && chat.isToday === true ? <li key={"dayTitle" + key}>
                                             <div className="chat-day-title">
                                                 <span className="title">Today</span>

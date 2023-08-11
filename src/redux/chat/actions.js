@@ -12,9 +12,9 @@ export const activeUser = (userId) => ({
     payload : userId
 });
 
-export const setFullUser = (users) => ({
+export const setFullUser = ( users, IsRetrieve ) => ({
     type: FULL_USER,
-    payload : users 
+    payload : {users, IsRetrieve}
 });
 
 export const fullUserSuccess = (users) => ({
