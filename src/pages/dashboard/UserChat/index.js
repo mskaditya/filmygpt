@@ -100,13 +100,8 @@ function UserChat(props) {
         userData.ConversationId = conversationId ?  conversationId : uuid();
         userData.InitialConversationTimeStamp = new Date();
         userData.SessionId = sessionId ? sessionId: props.sessionId
-
-        let IsMessagesRetrieve = false
-        if (sessionId && conversationId) {
-            IsMessagesRetrieve = true;
-        }
-        console.log(userData);
-        props.setFullUser(userData, IsMessagesRetrieve);
+        
+        props.setFullUser(userData, true);
         scrolltoBottom("initial message");
     }
 
