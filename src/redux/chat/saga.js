@@ -1,5 +1,11 @@
 import { all, call, fork, put, takeEvery } from 'redux-saga/effects';
 import { getFirebaseBackend } from "../../helpers/firebase";
+import avatar9 from "../../assets/images/users/sharuk.jpg";
+import avatar10 from "../../assets/images/users/rajnikanth.jpg";
+import avatar11 from "../../assets/images/users/sunnydoel.jpg";
+import ghazal_e_dil from "../../assets/images/users/10.png";
+import amitabh_bachchan from "../../assets/images/users/kbc.jpg";
+import alia_bhatt from "../../assets/images/users/alia_bhatt.jpeg";
 
 import {
     FULL_USER
