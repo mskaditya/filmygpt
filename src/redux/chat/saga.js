@@ -139,12 +139,10 @@ function* fullUser({ payload: { users, IsRetrieve} }) {
             yield put(fullUserSuccess(response));
             
         } else {
-            console.log(users);
             if (IsRetrieve) {
                 const response = yield call(retrieveMessage, users);
                 let currentactiveUser = bot_active_user.find(x => x.botId == response.botId)
-                console.log(currentactiveUser);
-                yield put(activeUser(currentactiveUser.active_user))
+                yield put(activeUser(currentactiveUser.active_user)) // reset the active user
                 yield put(fullUserSuccess(response));
             }
             else {
